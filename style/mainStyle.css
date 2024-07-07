@@ -1,0 +1,47 @@
+@font-face {
+    font-family: NeoMatrixCode;
+    src: url(neomatrix_code.woff);
+}
+
+header {
+    min-height: 50px;
+    background-color: rgb(69, 60, 99);
+}
+
+body{
+    font-family: "neomatrix code";
+    background-color: rgb(33, 29, 48);
+
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+footer {
+    min-height: 50px;
+    background-color: rgb(14, 12, 22);
+}
+
+.tabs{
+    float: right;
+    display: block;
+    padding: 0.7%;
+    margin-right: 2%;
+    background-color: rgb(33, 29, 48);
+}
+
+.tabs:hover{
+    animation: puzzle 0.2s ease;
+}
+
+@keyframes puzzle {
+    0% {
+        background-color: rgb(33, 29, 48);
+        /*transform: translateY(0);*/
+    }
+    100% {
+        background-color: rgb(69, 60, 99);
+        /*transform: translateY(100px);*/
+    }
+}
