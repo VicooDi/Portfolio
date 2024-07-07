@@ -1,7 +1,7 @@
 # Portfolio
 
 **Qusests :**
-- [ ] Sketch and Ideas
+- [x] Sketch and Ideas
 - [ ] HTML base
 - [ ] CSS code
 - [ ] javaScript
