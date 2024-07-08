@@ -1,0 +1,85 @@
+#top_header{
+    background-color: #453c63;
+}
+#bottom_header{
+    background-color: #211d30;
+    display: flex;
+}
+#tabs{
+    display: flex;
+    float :right;
+    
+    margin-left: auto; 
+
+}
+.sections{
+    
+    min-width: 100px;
+    height: 100%;
+    
+    text-align: center;
+    background-color: #100e17;
+    margin-left: 5px;
+}
+@font-face {
+    font-family: NeoMatrixCode;
+    src: url(neomatrix_code.woff);
+}
+body{
+    background-color: #100e17;
+    color: #cbdbe5;
+    font-family: "neomatrix code";
+
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+a{
+    text-decoration: underline;
+    text-decoration-color: #0fb1d6;
+    text-decoration-thickness: 5px;
+    text-underline-offset: -2px;
+    text-decoration-skip-ink:none;
+    text-decoration-color: rgba(15, 177, 214, 0.5);
+    color: inherit;
+}
+a:hover{
+    text-decoration-thickness: 20px;
+    text-underline-offset: -15px;
+}
+#me{
+    color: #0fb1d6;
+    background-color: #100e17;
+    font-size:250%;
+    font-weight: bolder;
+    
+    float: Left;
+    
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    margin-left: 10%;
+}
+main{
+    background-color: #100e17;
+    height: 500px;
+}
+
+@keyframes tabs_up {
+    0%{
+        transform: translateY(0);
+        background-color: #100e17;
+    }
+    100%{
+        transform: translateY(100%);
+        background-color: #211d30;
+    }
+}
+@keyframes tabs_down {
+    0%{
+        transform: translateY(100%);
+        background-color: #211d30;
+    }
+    100%{
+        transform: translateY(0);
+        background-color: #100e17;
+    }
+}
