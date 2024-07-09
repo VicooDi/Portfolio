@@ -46,6 +46,12 @@ a:hover{
     text-decoration-thickness: 20px;
     text-underline-offset: -15px;
 }
+h1{
+    color: #0fb1d6;
+    background-color: #100e17;
+    font-size:150%;
+    font-weight: bolder;
+}
 #me{
     color: #0fb1d6;
     background-color: #100e17;
@@ -61,6 +67,7 @@ a:hover{
 main{
     background-color: #100e17;
     height: 500px;
+    display: grid;
 }
 
 @keyframes tabs_up {
@@ -82,4 +89,20 @@ main{
         transform: translateY(0);
         background-color: #100e17;
     }
+}
+img{
+    display: block;
+    border: 2px solid #0fb1d6;
+}
+.img_right{
+    float:right;
+    margin-left: 2.5%;
+}
+.img_left{
+    float:left;
+    margin-right: 2.5%;
+}
+.text{
+    word-wrap: break-word;
+    max-width: 700px;
 }
