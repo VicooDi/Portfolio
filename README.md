@@ -2,20 +2,20 @@
 
 **Qusests :**
 - [x] Sketch and Ideas
-- [ ] HTML base
-- [ ] CSS code
-- [ ] javaScript
+- [x] HTML base
+- [x] CSS code
+- [x] javaScript
 - [ ] PHP
 - [ ] hosting
 
 **Projects to Showcase :**
 - [ ] Fate Of Kingdom
-- [ ] game engine
+- [x] game engine
 - [ ] graphics engine
-- [ ] GIZMO (wip)
+- [x] GIZMO (wip)
 
 **Contact :**
-- [ ] twitter
-- [ ] bluesky
+- [x] twitter
+- [x] bluesky
 - [ ] email
-- [ ] github
+- [x] github
