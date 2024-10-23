@@ -25,7 +25,10 @@
     font-family: NeoMatrixCode;
     src: url(neomatrix_code.woff);
 }
-body{
+body
+{
+    padding: 0;
+    margin: 0;
     background-color: #100e17;
     color: #cbdbe5;
     font-family: "neomatrix code";
@@ -93,16 +96,71 @@ main{
 img{
     display: block;
     border: 2px solid #0fb1d6;
-}
-.img_right{
+}.img_right{
     float:right;
     margin-left: 2.5%;
 }
 .img_left{
     float:left;
     margin-right: 2.5%;
+    margin-left: 5%;
+
+    width: 25%;
+    height: 25%;
 }
 .text{
     word-wrap: break-word;
     max-width: 700px;
+}
+
+#Projects{
+    overflow:hidden;
+    /* white-space: nowrap; */
+    height:fit-content;
+    text-wrap: nowrap;
+    /* position: relative; */
+    /* clear: both; */
+}
+#Projects div{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    margin-left: 0%;
+    padding: 0%;
+}
+#Projects div div{
+    display: block;
+}
+#Projects div p{
+    width: 150%;
+    text-wrap:wrap;
+}
+
+#Projects input{ /*this represents the 2 button for scrolling*/
+    position: fixed;
+    z-index: 1;
+    height:25%;
+
+    mix-blend-mode:soft-light;
+    background-color: rgba(50, 50, 70, 70);
+    color: azure;
+    border-width: 0;
+    padding: 5px;
+    width: 2.5%;
+}
+#HScrollR{
+    /* float: inline-end; */
+    right: 0%;
+}
+#HScrollL{
+    /* float: inline-start; */
+    left: 0%;
+}
+#Projects i{
+    font-size:x-large;
+}
+
+#Socials{
+    display:contents;
+    float: none;
 }

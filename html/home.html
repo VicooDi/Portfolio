@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vicoodi</title>
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
     <script src="../scripts/main.js"></script>
 </head>
 <body>
     <header onmouseover="return tabsUp()">
-        <div id="top_header">Game Developer</div>
+        <div id="top_header">Hello! My name is</div>
         <div id="bottom_header">
             <div id="me">VicooDi</div>
             <div id="tabs">
@@ -20,21 +22,50 @@
         </div>
     </header>
     <main onmouseover="return tabsDown()">
-        this is the zone where there will be very important thigns
+        <!--this is the zone where there will be very important thigns-->
         <div id="aboutme">
-            <h1>About Me</h1>
+            <h1>About Me</h1> 
             I'm a Game Developer Based in Tunisia, 
         </div>
         <div id="Projects">
             <h1>Projects</h1>
+            <input id="HScrollL" type="button" value="<" onclick="scrollL()"></input>
+            <input id="HScrollR" type="button" value=">" onclick="scrollR()"></input>
             <div id="Gizmo">
-                <img src="../misc/overtaken-fringedIris.png" alt="gizmo" class="img_left" width="20%" height="20%" href="">
-                <div class="text"><h2><a href="">GIZMO</a></h2> is a 2D puzzle platformer aboout a robot trying escapting a abandoned resaearch facility while dicovering his name</div>
+                <img src="../misc/overtaken-fringedIris.png" alt="gizmo" class="img_left" href="">
+                <div class="text"><h2><a href="">GIZMO</a></h2> <p>is a metroid-brania aboout a robot trying escape a abandoned resaearch facility while trying to find his name</p></div>
+                <div clas="tools">
+                    <i class="devicon-godot-plain colored"></i>
+                    <i class="devicon-blender-original colored"></i>
+                </div>
+            </div><div id="_engine">
+                <img src="../misc/HelloTriangle.png" alt="HelloTriangle" class="img_left" href="">
+                <div class="text"><h2><a href="">_engine</a></h2> <p>is a project I started to learn the basics of creating and managing game engines with</p></div>
+                <div clas="tools">
+                    <i class="devicon-cmake-plain colored"></i>
+                    <i class="devicon-cplusplus-plain colored"></i>
+                    <i class="devicon-sdl-plain colored"></i>
+                </div>
+            </div><div id="_engine">
+                <img src="../misc/cameraBot(speedUp).gif" alt="HelloTriangle" class="img_left" href="">
+                <div class="text"><h2><a href="">_engine</a></h2> <p>is a project I started to learn the basics of creating and managing game engines with</p></div>
+                <div clas="tools">
+                    <i class="devicon-cmake-plain colored"></i>
+                    <i class="devicon-cplusplus-plain colored"></i>
+                    <i class="devicon-sdl-plain colored"></i>
+                </div>
             </div>
         </div>
-        <div id="Contact">
-            <h1>Contact</h1>
-        </div>
     </main>
+    <div id="Socials">
+        <h1>Socials</h1>
+        You can find me on :
+        <li><a href="https://github.com/VicooDi"><i class="devicon-github-original"></i> github</a></li>
+        <li><a href="https://leetcode.com/u/VicooSi/"> leetcode</a></li>
+        <li><a href="https://vicoodi.itch.io/">itch.io</a></li>
+        <li><a href="https://bsky.app/profile/vicoodi.bsky.social">bluesky</a></li>
+        <li><a href="https://x.com/vicoodi"><i class="devicon-twitter-original"></i> twitter</a>
+        </li>
+    </div>
 </body>
 </html>

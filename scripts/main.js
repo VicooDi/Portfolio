@@ -1,3 +1,4 @@
+var tabs_moved = 0
 
 function tabsUp() {
     var tabs = document.getElementById("tabs");
@@ -19,6 +20,14 @@ function tabsDown() {
         sections[i].style.animation="tabs_down 0.2s ease";
         sections[i].style.animationFillMode="forwards";
     }
-
+    tabs_moved+=1;
     return 1;
+}
+
+// alert(window.innerWidth)
+function scrollR(){
+    document.getElementById('Projects').scrollLeft += window.innerWidth;
+}
+function scrollL(){
+    document.getElementById('Projects').scrollLeft -= window.innerWidth;
 }
