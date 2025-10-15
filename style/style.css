@@ -75,7 +75,7 @@ h1{
 main{
     background-color: #100e17;
     height: 500px;
-    display: grid;
+    position: relative;
     padding-top: 5%;
 }
 
@@ -124,15 +124,15 @@ img{
     /* white-space: nowrap; */
     height:fit-content;
     text-wrap: nowrap;
-    position: relative;
-    float: none;
-    display: block;
+    position: sticky;
+    display: inline-block;
+    width: 95%;
     /* clear: both; */
 }
 #Projects div{
     display: inline-block;
     position: relative;
-    width: 50%;
+    width: 48%;
     margin-left: 0%;
     padding: 0%;
 }
@@ -144,10 +144,10 @@ img{
     text-wrap:wrap;
 }
 
-#Projects input{ /*this represents the 2 button for scrolling*/
+.scrollers{ /*this represents the 2 button for scrolling*/
     position: relative;
     z-index: 1;
-    height:100%;
+    height:59%;
 
     mix-blend-mode:soft-light;
     background-color: rgba(50, 50, 70, 70);
@@ -157,13 +157,11 @@ img{
     width: 2.5%;
 }
 #HScrollR{
-    position: sticky;
-    float: inline-end
+    float: right;
     right: 0%;
 }
 #HScrollL{
-    position: sticky;
-    float: inline-start
+    float: left;
     left: 0%;
 }
 #Projects i{
