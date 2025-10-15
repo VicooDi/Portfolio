@@ -5,6 +5,11 @@
     background-color: #211d30;
     display: flex;
 }
+header{
+    position:fixed;
+    z-index: 100;
+    width: 100%;
+}
 #tabs{
     display: flex;
     float :right;
@@ -71,6 +76,7 @@ main{
     background-color: #100e17;
     height: 500px;
     display: grid;
+    padding-top: 5%;
 }
 
 @keyframes tabs_up {
@@ -105,8 +111,8 @@ img{
     margin-right: 2.5%;
     margin-left: 5%;
 
-    width: 25%;
-    height: 25%;
+    width: 192px;
+    height: 192px;
 }
 .text{
     word-wrap: break-word;
@@ -118,7 +124,9 @@ img{
     /* white-space: nowrap; */
     height:fit-content;
     text-wrap: nowrap;
-    /* position: relative; */
+    position: relative;
+    float: none;
+    display: block;
     /* clear: both; */
 }
 #Projects div{
@@ -137,9 +145,9 @@ img{
 }
 
 #Projects input{ /*this represents the 2 button for scrolling*/
-    position: fixed;
+    position: relative;
     z-index: 1;
-    height:25%;
+    height:100%;
 
     mix-blend-mode:soft-light;
     background-color: rgba(50, 50, 70, 70);
@@ -149,18 +157,69 @@ img{
     width: 2.5%;
 }
 #HScrollR{
-    /* float: inline-end; */
+    position: sticky;
+    float: inline-end
     right: 0%;
 }
 #HScrollL{
-    /* float: inline-start; */
+    position: sticky;
+    float: inline-start
     left: 0%;
 }
 #Projects i{
     font-size:x-large;
 }
+#filler{
+    display:block;
+    float: none;
+}
 
 #Socials{
-    display:contents;
-    float: none;
+    display:grid;
+    float: left;
+}
+
+.tools strong{
+    color: #0fb1d6;
+    font-size: larger;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  padding: 0.25em 0.5em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.25em;
+  white-space: nowrap;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 100%;
+  transition-property: visibility;
+  transition-delay: 0s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  transition-delay: 0.1s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
 }

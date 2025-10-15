@@ -31,3 +31,15 @@ function scrollR(){
 function scrollL(){
     document.getElementById('Projects').scrollLeft -= window.innerWidth;
 }
+
+function copyEmailToClipBoard() {
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText("vicoodigm@gmail.com");
+    document.getElementById("emailTooltip").innerHTML = "Copied!"
+
+}
+
+function resetToolTip() {
+    document.getElementById("emailTooltip").innerHTML = "Copy Email"
+}
