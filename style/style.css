@@ -32,7 +32,7 @@ body
     padding: 0;
     margin: 0;
     background-color: var(--bg);
-    height: 1280px;
+    height: fit-content;
 
     animation: "bg_anim" 36s linear infinite ;
     background:repeat url("../misc/pattern.png")
@@ -113,7 +113,7 @@ h1{
     border: 2px solid var(--highlight2);
     border-radius: 5px;
     padding-left: 1%;
-    padding-bottom: 0%;
+    padding-bottom: 3%;
 
 }
 main{
