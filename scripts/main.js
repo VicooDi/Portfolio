@@ -24,12 +24,26 @@ function tabsDown() {
     return 1;
 }
 
+function alignSocial() {
+    var socials = document.getElementById("Socials");
+    
+    var project_h = document.getElementById("Projects").style.height;
+    var pfp_h = document.getElementById("pfp").style.height;
+
+    alert(String(project_h));
+    alert(String(pfp_h));
+    
+    socials.style.height = project_h - pfp_h - (project_h - (project_h * 0.5));
+
+    alert(String(socials.style.height));
+}
+
 // alert(window.innerWidth)
 function scrollR(){
-    document.getElementById('Projects').scrollLeft += window.innerWidth;
+    document.getElementById('Projects').scrollLeft += window.innerWidth/2;
 }
 function scrollL(){
-    document.getElementById('Projects').scrollLeft -= window.innerWidth;
+    document.getElementById('Projects').scrollLeft -= window.innerWidth/2;
 }
 
 function copyEmailToClipBoard() {

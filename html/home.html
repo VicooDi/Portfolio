@@ -11,86 +11,98 @@
 </head>
 <body>
     <header onmouseover="return tabsUp()">
-        <div id="top_header">Hello! My name is</div>
-        <div id="bottom_header">
-            <div id="me">VicooDi</div>
-            <div id="tabs">
-                <div class="sections"><a href="#aboutme"><br>About me</a></div>
-                <div class="sections"><a href="#Projects"><br>Projects</a></div>
-                <div class="sections"><a href="#Socials"><br>Contact</a></div>
-            </div>
+        <div id="me"><h1>VicooDi</h1></div>
+        <div id="tabs">
+            <div class="sections"><a href="#aboutme"><br>About me</a></div>
+            <div class="sections"><a href="#Projects"><br>Projects</a></div>
+            <div class="sections"><a href="#Socials"><br>Contact</a></div>
         </div>
     </header>
+    <div id="aboutme" onmouseover="return tabsDown()">
+        <h1>Hi!</h1> 
+        I'm 20 year old collage student, Making Indie Games and 3D Models, <br>I love giving soul to the souless and connecting throught creating. <br>
+        I'm also looking for part-time or freelance <i>(Remote)</i>work! check out my projects below.
+    </div>
     <main onmouseover="return tabsDown()">
+        <nav>
+            <div id="pfp">
+                <img src="../misc/rust_eyed.png" alt="pfp">
+            </div>
+            <center><h1>Socials</h1></center>
+            <div id="Socials">
+                <li><a href="https://github.com/VicooDi"><i class="devicon-github-original"></i> github</a></li>
+                <li><a href="https://vicoodi.itch.io/"><i class="fa-brands fa-itch-io"></i>itch.io</a></li>
+                <li><a href="https://bsky.app/profile/vicoodi.bsky.social"><i class="fa-brands fa-bluesky"></i>bluesky</a></li>
+                <li><a href="https://x.com/vicoodi"><i class="devicon-twitter-original"></i> twitter</a>
+                <li><i class="fa-solid fa-envelope"></i><a onclick="copyEmailToClipBoard()" onmouseout="resetToolTip()" class="tooltip" id="email">Email<span class="tooltiptext" id="emailTooltip">Copy Email</span></a></li>
+                </li>
+            </div>
+        </nav>
         <!--this is the zone where there will be very important thigns-->
-        <div id="aboutme">
-            <h1>About Me</h1> 
-            I'm a Gamdev and 3D Artist, currently a collage student, I work on my games in the free time 
+        <div class="projects">
+            <h1>My Works</h1>
+            <input id="HScrollL" class="scrollers" type="button" value="<" onclick="scrollL()"></input><div id="Projects">
+                <div class="proj_sec" id="Gizmo">
+                    <img src="../misc/overtaken-fringedIris.png" alt="gizmo" class="img_left" href="coming_soon.html">
+                    <div class="text"><h2><a href="coming_soon.html">GIZMO</a></h2><p>is a metroid-brania aboout a robot trying to remember his name</p></div>
+                    
+                    <div class="tools"><strong>Tools :</strong><br>
+                        <i class="devicon-godot-plain colored"></i>
+                        <i class="devicon-blender-original colored"></i>
+                    </div>
+                </div>
+                <div class="proj_sec" id="_engine">
+                    <img src="../misc/HelloTriangle.png" alt="HelloTriangle" class="img_left" href="">
+                    <div class="text"><h2><a href="github.com">_engine</a></h2><p>is a project I started to learn the basics of creating and managing game engines with</p></div>
+                    <div class="tools"><strong>Tools :</strong><br>
+                        <i class="devicon-cmake-plain colored"></i>
+                        <i class="devicon-cplusplus-plain colored"></i>
+                        <i class="devicon-sdl-plain colored"></i>
+                    </div>
+                </div>
+                <div class="proj_sec" id="3DModels">
+                    <img src="../misc/cameraBot(speedUp).gif" alt="hehe" class="img_left" href="models.html">
+                    <div class="text"><h2><a href="models.html">3D_Models</a></h2><p>is a collection of my 3D projects</p></div>
+                    <div class="tools"><strong>Tools :</strong><br>
+                        <i class="devicon-blender-original colored"></i>
+                    </div>
+                </div>
+                <div class="proj_sec" id="CurvyJump">
+                    <img src="../misc/curveyJump.png" alt="curveyJump package" class="img_left" href="">
+                    <div class="text"><h2><a href="">CurvyJump</a></h2><p>is a package for a Jump that uses curves for unlimited customization made for the unity engine</p></div>
+                    <div class="tools"><strong>Tools :</strong><br>
+                        <i class="devicon-unity-plain colored"></i>
+                        <i class="devicon-csharp-plain colored"></i>
+                    </div>
+                </div>  
+            </div>
+            <input id="HScrollR" class="scrollers" type="button" value=">" onclick="scrollR()"></input>
         </div>
-        <h1>My Works</h1>
-        <input id="HScrollL" class="scrollers" type="button" value="<" onclick="scrollL()"></input>
-        <div id="Projects">
-            <div id="Gizmo">
-                <img src="../misc/overtaken-fringedIris.png" alt="gizmo" class="img_left" href="">
-                <div class="text"><h2><a href="">GIZMO</a></h2><p>is a metroid-brania aboout a robot trying to remember his name</p></div>
-                <div class="tools"><strong>Tools :</strong><br>
-                    <i class="devicon-godot-plain colored"></i>
-                    <i class="devicon-blender-original colored"></i>
-                </div>
-            </div>
-            <div id="_engine">
-                <img src="../misc/HelloTriangle.png" alt="HelloTriangle" class="img_left" href="">
-                <div class="text"><h2><a href="">_engine</a></h2><p>is a project I started to learn the basics of creating and managing game engines with</p></div>
-                <div class="tools"><strong>Tools :</strong><br>
-                    <i class="devicon-cmake-plain colored"></i>
-                    <i class="devicon-cplusplus-plain colored"></i>
-                    <i class="devicon-sdl-plain colored"></i>
-                </div>
-            </div>
-            <div id="3D Models">
-                <img src="../misc/cameraBot(speedUp).gif" alt="hehe" class="img_left" href="">
-                <div class="text"><h2><a href="">3D Models</a></h2><p>is a collection of my 3D projects</p></div>
-                <div class="tools"><strong>Tools :</strong><br>
-                    <i class="devicon-blender-original colored"></i>
-                </div>
-            </div>
-            <div id="CurvyJump">
-                <img src="../misc/curveyJump.png" alt="curveyJump package" class="img_left" href="">
-                <div class="text"><h2>CurvyJump</h2><p>is a package for a Jump that uses curves for unlimited customization made for the unity engine</p></div>
-                <div class="tools"><strong>Tools :</strong><br>
-                    <i class="devicon-unity-plain colored"></i>
-                </div>
-            </div>  
-        </div>
-        <input id="HScrollR" class="scrollers" type="button" value=">" onclick="scrollR()"></input>
     </main>
     <div id="filler">
         <section>
             <h1>Documentations & Articles :</h1>
-            <p>these are some small articles about implementing certain progrmas or documantations for using tools I made</p>
-            do some vodo magic to link this to obsidian
+            <p>these are some small articles about implementing certain progrmas or documantations for using tools I made. <br>I will be uploading a new article every month and a documantations every time I make a tool</p>
+            <ol>
+                <li><a href="">freshest article</a></li>
+                <li>currently baking : <i>Matrix</i></li>
+            </ol>
         </section>
         <section>
             <h1>Q&A :</h1>
             <ol>
                 <li>Q : why does the website look so ugly?</li>
-                <li>A : I may be an extremly acomplished and handsome gamedev and 3D artsist , but I'm by no means a designer</li>
+                <li>A : I may be an extremly acomplished and handsome gamedev/3D artsist , but I'm by no means a good designer</li>
                 <li>Q : Will you rework the webpage</li>
-                <li>A : Maybe. Maybe not we will see</li>
-                <li>Q : Why am I asking questions to myself and answering them?</li>
-                <li>A : idk lol</li>
+                <li>A : ¯\_( ͡° ͜ʖ ͡°)_/¯</li>
+                <li>Q : do you have any game recommendations?</li>
+                <li>A : PLAY ATOPES!!!!</li>
+                <li>Q : How employable are you?</li>
+                <li>A : very</li>
+                <li>Q : who is asking these questions?</li>
+                <li>A : ¯\_( ͡° ͜ʖ ͡°)_/¯</li>
             </ol>
         </section>
-    </div>
-    <div id="Socials">
-        <h1>Socials</h1>
-        You can find me on :
-        <li><a href="https://github.com/VicooDi"><i class="devicon-github-original"></i> github</a></li>
-        <li><a href="https://vicoodi.itch.io/"><i class="fa-brands fa-itch-io"></i>itch.io</a></li>
-        <li><a href="https://bsky.app/profile/vicoodi.bsky.social"><i class="fa-brands fa-bluesky"></i>bluesky</a></li>
-        <li><a href="https://x.com/vicoodi"><i class="devicon-twitter-original"></i> twitter</a>
-        <li><i class="fa-solid fa-envelope"></i><a onclick="copyEmailToClipBoard()" onmouseout="resetToolTip()" class="tooltip" id="email">Email<span class="tooltiptext" id="emailTooltip">Copy Email</span></a></li>
-        </li>
     </div>
 </body>
 </html>
