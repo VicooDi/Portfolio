@@ -27,11 +27,13 @@ header{
     font-family: NeoMatrixCode;
     src: url(neomatrix_code.woff);
 }
+html{
+    height: 240%;
+}
 body
 {
     padding: 0;
     margin: 0;
-    background-color: var(--bg);
     height: fit-content;
     width: 85%;
 
@@ -105,7 +107,7 @@ h1{
 
     float: left;
 
-    font-size:100%;
+    font-size:150%;
 
     margin: 2%;
 
@@ -343,7 +345,7 @@ img{
     color:var(--text);
     border-width: 0;
     padding: 5px;
-    width: 12.5%;
+    width: 4%;
 }
 #HScrollR{
     float: right;
@@ -413,4 +415,17 @@ img{
   left: 50%;
   margin-left: -5px;
   border-color: var(--bg_secondary) transparent transparent transparent;
+}
+
+.showcase_img{
+    height: 256px;
+    float: left;
+    border-radius: 1%;
+    border: 2px solid var(--highlight2);
+    margin: 0%;
+    box-shadow:5px red ;
+}
+
+.showcaser{
+    display: inline-block;
 }
