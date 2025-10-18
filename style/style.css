@@ -33,7 +33,7 @@ body
     margin: 0;
     background-color: var(--bg);
     height: fit-content;
-    width: 1080px;
+    width: 85%;
 
     animation: "bg_anim" 36s linear infinite ;
     background:repeat url("../misc/pattern.png")
@@ -105,7 +105,7 @@ h1{
 
     float: left;
 
-    font-size: 100%;
+    font-size:100%;
 
     margin: 2%;
 
@@ -121,18 +121,18 @@ h1{
 }
 #vector{
     float: right;
-    margin-top: 10%;
+    margin-top: 11%;
     margin-right: -.5%;
     margin-left: -15%;
-    width: 30%;
-    right: -10%;
+    width: 25%;
+    right: -12%;
     position: relative;
 }
 #vector figure{
     width: 100%;
 }
 #vector img{
-    width: 100%;
+    width: 99%;
 }
 main{
     display: flex;
@@ -314,13 +314,14 @@ img{
 }
 
 #Projects{
-    overflow:scroll;
+    overflow: hidden;
+    overflow-x:scroll;
     /* white-space: nowrap; */
-    height:fit-content;
+    height:75%;
     text-wrap: nowrap;
     position: sticky;
     display: inline-block;
-    width: 95%;
+    width: 75%;
     /* clear: both; */
 }
 #Projects div{
@@ -335,14 +336,14 @@ img{
 .scrollers{ /*this represents the 2 button for scrolling*/
     position: relative;
     z-index: 1;
-    height:79%;
+    height: 72.5%;
 
     mix-blend-mode:soft-light;
     background-color: rgba(50, 50, 70, 70);
     color:var(--text);
     border-width: 0;
     padding: 5px;
-    width: 2.5%;
+    width: 12.5%;
 }
 #HScrollR{
     float: right;
