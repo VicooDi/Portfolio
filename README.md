@@ -1,12 +1,13 @@
 # Portfolio
 
+This is the repository for my portfolio. you can check all the code above.
+
 **Qusests :**
 - [x] Sketch and Ideas
 - [x] HTML base
 - [x] CSS code
 - [x] javaScript
-- [ ] PHP
-- [ ] hosting
+- [x] hosting
 
 **Projects to Showcase :**
 - [ ] Fate Of Kingdom
@@ -17,5 +18,5 @@
 **Contact :**
 - [x] twitter
 - [x] bluesky
-- [ ] email
+- [x] email
 - [x] github
