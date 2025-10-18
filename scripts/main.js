@@ -1,4 +1,13 @@
 var tabs_moved = 0
+var win_w = window.innerWidth;
+var win_h = window.innerHeight;
+
+function startup(){
+    document.body.innerWidth = win_w;
+    document.body.innerHeight = win_h;
+
+    return 0;
+}
 
 function tabsUp() {
     var tabs = document.getElementById("tabs");

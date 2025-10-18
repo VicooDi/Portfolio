@@ -33,6 +33,7 @@ body
     margin: 0;
     background-color: var(--bg);
     height: fit-content;
+    width: 1080px;
 
     animation: "bg_anim" 36s linear infinite ;
     background:repeat url("../misc/pattern.png")
@@ -100,13 +101,15 @@ h1{
 }*/
 #aboutme{
     position: relative;
-    width: 95%;
+    width: 120%;
 
-    font-size: 105%;
+    float: left;
+
+    font-size: 100%;
 
     margin: 2%;
 
-    margin-top: 5.5%;
+    margin-top: 12%;
     margin-bottom: 0;
 
     background-color: var(--bg_secondary);
@@ -115,6 +118,21 @@ h1{
     padding-left: 1%;
     padding-bottom: 3%;
 
+}
+#vector{
+    float: right;
+    margin-top: 10%;
+    margin-right: -.5%;
+    margin-left: -15%;
+    width: 30%;
+    right: -10%;
+    position: relative;
+}
+#vector figure{
+    width: 100%;
+}
+#vector img{
+    width: 100%;
 }
 main{
     display: flex;
@@ -130,25 +148,26 @@ main{
     height: 100%;
     float: left;
 
-    width: 82%;
+    width: 100%;
 
     background-color: var(--bg_secondary);
     border: 2px solid var(--highlight2);
     border-radius: 5px;
     margin: 2%;
-    margin-left: 0;
+    margin-left: 0%;
+    margin-right: -15%;
     margin-top: 2%;
     padding-left: 2%;
     padding-bottom: 6%;
 }
 .projects p{
     text-align: justify;
-    width:100%;
+    width:200%;
 }
 .projects h2{
     width: 100%;
     text-align: left;
-    font-size:xx-large;
+    font-size:x-large;
 }
 nav{
     width: 15%;
@@ -243,8 +262,7 @@ nav{
     margin-top: 0;
     padding-top: 0;
 
-    width: 256px;
-    height: 256px;
+    width: 45%;
 
     grid-column-start: 1;
     grid-column-end: 3;
@@ -293,11 +311,10 @@ img{
 }
 .text{
     word-wrap: break-word;
-    max-width: 700px;
 }
 
 #Projects{
-    overflow:hidden;
+    overflow:scroll;
     /* white-space: nowrap; */
     height:fit-content;
     text-wrap: nowrap;
@@ -347,6 +364,7 @@ img{
     border-radius: 5px;
     margin: 2%;
     margin-top: 0;
+    margin-right: -15%;
     padding-left: 2%;
     padding-bottom: 2%;
 }
