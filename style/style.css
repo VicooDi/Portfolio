@@ -25,7 +25,7 @@ header{
 }
 @font-face {
     font-family: NeoMatrixCode;
-    src: url(neomatrix_code.woff);
+    src: url("../misc/fonts/NeomatrixCode.ttf");
 }
 html{
     height: 240%;
@@ -323,7 +323,7 @@ img{
     text-wrap: nowrap;
     position: sticky;
     display: inline-block;
-    width: 75%;
+    width: 92%;
     /* clear: both; */
 }
 #Projects div{
