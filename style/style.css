@@ -29,6 +29,10 @@ header{
 }
 html{
     height: 240%;
+    animation: "bg_anim" 36s linear infinite ;
+    background:repeat url("../misc/pattern.png")
+    , linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 75%, var(--bg) 90%);
+    image-rendering:pixelated;
 }
 body
 {
@@ -37,10 +41,6 @@ body
     height: fit-content;
     width: 85%;
 
-    animation: "bg_anim" 36s linear infinite ;
-    background:repeat url("../misc/pattern.png")
-    , linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 75%, var(--bg) 90%);
-    image-rendering:pixelated;
 
     color: var(--text);
     font-family: "neomatrix code";
