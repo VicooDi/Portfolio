@@ -193,7 +193,7 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.mhchemParser=void 0;var r=fun
 <div style="right: 0;"><a href="docs.html">back</a></div>
 </header>
 <hr />
-<p><strong>Sections :</strong> - 
+<strong>Sections :</strong>
   <ol type="I">
     <li>
       <a href="#I - A Matrix" class="wikilink">#I - A Matrix </a>
@@ -205,6 +205,10 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.mhchemParser=void 0;var r=fun
       <a href="#III - Matrix Methods" class="wikilink">#III - Matrix Methods</a>
     </li>
   </ol>
+  <strong>Sources :</strong>
+  <ul>
+    <li><a class="extern_link" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">Great Breakdown of main concepts</a></li>
+  </ul>
   <hr>
 <h2>I - A Matrix :</h2>
 <h3>Definition :</h3>
@@ -235,7 +239,7 @@ happen in Matrices on element per element basis. <br> <em>Example :</em>
       4 &amp; 7 \\
       11 &amp; 15
       \end{bmatrix}
-      \]</span> - as for (×) operation it requires a more complicated
+      \]</span> - as for (*) operation it requires a more complicated
 approach, <em>Equation : </em> <span class="math display">\[
         \begin{bmatrix}
         a &amp; b \\
@@ -244,11 +248,11 @@ approach, <em>Equation : </em> <span class="math display">\[
         ×
         \begin{bmatrix}
         i &amp; j \\
-        j &amp; l
+        k &amp; l
         \end{bmatrix}
         =
         \begin{bmatrix}
-        a.i + b.k &amp; a.j + b.i \\
+        a.i + b.k &amp; a.j + b.l \\
         c.i + d.k &amp; c.j + d.l
         \end{bmatrix}
        \]</span>
@@ -290,6 +294,7 @@ matrix if it’s value is none zero. <br><em>Equation :</em></p>
   <span class="math_inline">\(a\)</span> or <span class="math_inline">\(d\)</span> or <span class="math_inline">\(g\)</span> is called the minor of said element,
 where is Minor of element <span class="math_inline">\(a\)</span> is a 2x2 matrix made by deleting the row and column of the in reference element.
 it is usually denoted as <span class="math_inline">\(M_{ij}\)</span> </p>
+<hr>
 <h3>3 - Cofactor of a Matrix :</h3> 
 <p> a cofactor is a property of an element of a matrix, denoted as <span class="math_inline">\(A_{ij}\)</span> or <span class="math_inline">\(C_{ij}\)</span> and is defined as follows : <span class="math display">\[C_{ij} = (-1)^{i+j} . M_{ij}\]</span> where is :
 - <span class="math_inline">\(C_{ij}\)</span> is the cofactor value -
@@ -310,6 +315,7 @@ would be :</p> <span class="math display">\[
      \]</span> thus <span class="math display">\[
     C_{32} = 7
     \]</span> 
+    <hr>
     <h3>4 - adjoint of a Matrix :</h3>
     <p> a adjoint is a modification of a matrix used to calculate other aspects of said matrix like their inverse.
     <strong>Formula for a 2x2 matrix :</strong> for :</p> <span class="math display">\[
@@ -345,6 +351,7 @@ would be :</p> <span class="math display">\[
     c&#39;1&amp;c&#39;2&amp;c&#39;3
     \end{bmatrix}
     \]</span> 
+    <hr>
     <h3>5 - Inverse of a Matrix :</h3>
     <p> for a matrix <span class="math_inline">\(A\)</span> with a non zero determinant, we can
 have a inverse matrix of <span class="math_inline">\(A\)</span> called
@@ -358,10 +365,11 @@ have a inverse matrix of <span class="math_inline">\(A\)</span> called
 <span class="math display">\[
    A^{-1} = {1\over{det(A)}}\times adj(A)  
    \]</span> 
+   <hr>
 <h2> III - Solving a Matrix :</h2>
 <p> a matrix may have some unknown
 values, and there are many methods to solving for these variables. some
-exceptionell cases need to be known to handle these methods</p>
+exceptionell cases need to be known to handle these methods</p><hr>
 <ul>
   <li>
     <strong>Binomial Formula :</strong><p> Newton’s Binomial Formula is
@@ -382,7 +390,7 @@ applicable on 2 Matrices <span class="math_inline">\(A\)</span> and <span class=
         = x{m!}\over{k!(m-k)!}\]</span>
       </li>
     </ul>
-  </li>
+  </li><hr>
   <li id="triang_mat">
     <strong>Triangular Matrix :</strong> a triangular matrix
     is one in the form of: <span class="math display">\[
@@ -395,7 +403,7 @@ applicable on 2 Matrices <span class="math_inline">\(A\)</span> and <span class=
     important because it facilitates solving any equation pertaining to
     systems or matrices. ^b76613 
 
-  </li>
+  </li><hr>
   <li>
     <strong>Equation System :</strong>
     <ul><li>
@@ -417,7 +425,7 @@ applicable on 2 Matrices <span class="math_inline">\(A\)</span> and <span class=
 
     </li>
     </ul>
-  </li>
+  </li><hr>
   <li>
     <strong>Gaussian elimination :</strong><p> Gaussian elimination is a
     methide to solve a system that relies on eliminating variables from the

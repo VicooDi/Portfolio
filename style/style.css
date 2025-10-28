@@ -14,6 +14,10 @@ header{
     margin-left: auto; 
 
 }
+hr{
+    
+    background-color:  var(--highlight1);
+}
 .sections{
     
     min-width: 100px;
@@ -428,4 +432,22 @@ img{
 
 .showcaser{
     display: inline-block;
+}
+
+ol, ul{
+    margin-top: 0;
+    padding-top: 0;
+}
+strong{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background-image: linear-gradient(-90deg ,#92c1fd, #c7bcfd);
+    color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-size: large;
+}
+
+.extern_link{
+    text-decoration-color: #8d3560 !important;
 }
