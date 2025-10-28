@@ -447,6 +447,10 @@ strong{
     font-weight: 600;
     font-size: large;
 }
+em{
+    font-size: 90%;
+    color: #c7bcfd;
+}
 
 .extern_link{
     text-decoration-color: #8d3560 !important;

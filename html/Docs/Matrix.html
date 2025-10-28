@@ -431,6 +431,27 @@ applicable on 2 Matrices <span class="math_inline">\(A\)</span> and <span class=
     methide to solve a system that relies on eliminating variables from the
     equations to create a <a href="#triang_mat" class="wikilink">Triangular
     Matrix</a></p>
+    <p>this involves doing operation between rows until we get the desired result</p>
+    <br><em>EX :</em><span class="math display">\[
+      for\space S =\begin{cases}
+      x + 2y + 2z= 2  ⇒ R_1\\
+      x+3y-2z=-1 ⇒ R_2\\
+      3x+5y+8z=8 ⇒ R_3
+      \end{cases}\]</span> 
+      <p>we will keep <span class="math inline">\(R_1\)</span> as a pivot used to eliminate the x variable from other rows</p>
+      <span class="math display">\[
+      S = \begin{cases}
+      x + 2y + 2z= 2  ⇒ R1 \\
+      y-4z=-3 ⇒ R_2\leftarrow R_2-R_1\\
+      -y+2z=2 ⇒ R_3\leftarrow R_3-3R_1
+      \end{cases}\]</span>
+      <p>we will keep <span class="math inline">\(R2\)</span> as the pivot to remove the variable <span class="math inline">\(y\)</span> from the last row</p>
+      <span class="math display">\[
+      S = \begin{cases}
+      x + 2y + 2z= 2  ⇒ R1 \\
+      y-4z=-3 ⇒ R_2\\
+      -2z=-1 ⇒ R_3\leftarrow R_3+3R_2 \end{cases}\]
+      <p></span>with this replacing we know that <span class="math inline">\(z = \frac{1}{2}\)</span> which we can replace in the second row, yielding the result of <span class="math inline">\(y\)</span> then repeat the process for the firstrow.</p>
 
   </li>
 </ul>
