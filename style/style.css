@@ -29,7 +29,7 @@ hr{
 }
 @font-face {
     font-family: NeoMatrixCode;
-    src: url("../misc/fonts/NeomatrixCode.ttf");
+    src: url(misc/fonts/NeomatrixCode.ttf);
 }
 html{
     height: 240%;
