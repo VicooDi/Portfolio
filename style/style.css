@@ -10,7 +10,6 @@ header{
 #tabs{
     display: flex;
     float :right;
-    
     margin-left: auto; 
 
 }
@@ -117,7 +116,7 @@ h1{
 
     margin: 2%;
 
-    margin-top: 12%;
+    margin-top: 9%;
     margin-bottom: 0;
 
     background-color: var(--bg_secondary);
@@ -129,7 +128,7 @@ h1{
 }
 #vector{
     float: right;
-    margin-top: 11%;
+    margin-top: 8%;
     margin-right: -.5%;
     margin-left: -15%;
     width: 25%;
@@ -165,8 +164,9 @@ main{
     margin-left: 0%;
     margin-right: -15%;
     margin-top: 2%;
+    margin-bottom: 18%;
     padding-left: 2%;
-    padding-bottom: 6%;
+    padding-bottom: 0%;
 }
 .projects p{
     text-align: justify;
@@ -250,16 +250,23 @@ nav{
     display: block;
     float: none;
     background-color: var(--bg);
-    border-radius: 12%;
-    width: 25%;
+    border-radius: 12px;
 
+    /*TODO : fit tools svg's to contone line*/
     height: fit-content;
     width: fit-content !important;
+    min-width: 100px;
 
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start:2 ;
     grid-row-end: 3;
+}
+.tools img{
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: none;
 }
 
 .img_left{
@@ -456,4 +463,8 @@ em{
 
 .extern_link{
     text-decoration-color: #8d3560 !important;
+}
+iframe{
+    border: none;
+    height: 100%;
 }
