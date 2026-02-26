@@ -106,6 +106,15 @@ loader.load('/logo.glb', function ( object ) {
     alert("failed to load model\nplease check the console");
 });
 
+
+onmousemove = function(e){
+  let posX = e.clientX;
+  let posY = e.clientY;
+
+  console.log("mouse location:", posX, posY);
+}
+
+
 //render loop
 function animate( time ) {
   renderer.render( scene, camera );
