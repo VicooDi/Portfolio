@@ -28,13 +28,13 @@ hr{
 }
 @font-face {
     font-family: NeoMatrixCode;
-    src: url("../misc/fonts/NeomatrixCode.ttf");
+    src: url("/misc/fonts/NeomatrixCode.ttf");
     font-display: swap;
 }
 html{
     height: 240%;
     animation: "bg_anim" 36s linear infinite ;
-    background:repeat url("../misc/pattern.png")
+    background:repeat url("/misc/pattern.png")
 
     , linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 75%, var(--bg) 90%);
     image-rendering:pixelated;

@@ -1,3 +1,5 @@
+import {test} from './test';
+alert(test.test);
 var tabs_moved = 0
 var win_w = window.innerWidth;
 var win_h = window.innerHeight;
@@ -23,6 +25,7 @@ function tabsUp() {
     //tabs.style.animationFillMode="forwards";
     return 1;
 }
+
 function tabsDown() {
     var sections = document.getElementsByClassName("sections");
     for (let i = 0; i < sections.length; i++) {
