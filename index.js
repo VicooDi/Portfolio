@@ -1,0 +1,1 @@
+export { tabsDown, tabsUp } from './src/main.js';

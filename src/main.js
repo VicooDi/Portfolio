@@ -1,5 +1,6 @@
-// import {test} from './test';
-// alert(test.test);
+import { TEST_VALUE } from "./lib/utilities"; //automatically iumports the index.js in that folder
+alert(TEST_VALUE);
+
 var tabs_moved = 0
 var win_w = window.innerWidth;
 var win_h = window.innerHeight;
@@ -11,7 +12,7 @@ function startup(){
     return 0;
 }
 
-function tabsUp() {
+export function tabsUp() {
     var tabs = document.getElementById("tabs");
     var sections = document.getElementsByClassName("sections");
     if(tabs.matches(":hover")){
@@ -26,7 +27,7 @@ function tabsUp() {
     return 1;
 }
 
-function tabsDown() {
+export function tabsDown() {
     var sections = document.getElementsByClassName("sections");
     for (let i = 0; i < sections.length; i++) {
         sections[i].style.animation="tabs_down 0.2s ease";
@@ -36,7 +37,7 @@ function tabsDown() {
     return 1;
 }
 
-function alignSocial() {
+export function alignSocial() {
     var socials = document.getElementById("Socials");
     
     var project_h = document.getElementById("Projects").style.height;
@@ -51,14 +52,14 @@ function alignSocial() {
 }
 
 // alert(window.innerWidth)
-function scrollR(){
+export function scrollR(){
     document.getElementById('Projects').scrollLeft += window.innerWidth/2;
 }
-function scrollL(){
+export function scrollL(){
     document.getElementById('Projects').scrollLeft -= window.innerWidth/2;
 }
 
-function copyEmailToClipBoard() {
+export function copyEmailToClipBoard() {
 
     // Copy the text inside the text field
     navigator.clipboard.writeText("vicoodigm@gmail.com");
@@ -66,6 +67,6 @@ function copyEmailToClipBoard() {
 
 }
 
-function resetToolTip() {
+export function resetToolTip() {
     document.getElementById("emailTooltip").innerHTML = "Copy Email"
 }
