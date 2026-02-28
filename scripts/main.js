@@ -1,5 +1,5 @@
-import {test} from './test';
-alert(test.test);
+// import {test} from './test';
+// alert(test.test);
 var tabs_moved = 0
 var win_w = window.innerWidth;
 var win_h = window.innerHeight;

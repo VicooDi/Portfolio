@@ -11,7 +11,12 @@ const camera = new THREE.PerspectiveCamera(17, window.innerWidth / window.innerH
 
 camera.position.set(35, 0, 0);
 
-const renderer = new THREE.WebGLRenderer({ alpha: true });
+try {
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+}
+catch(error) {
+  alert(error);
+}
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
