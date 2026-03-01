@@ -1,2 +1,2 @@
-export {/*list functions here*/load_model } from './object.js';
-export { renderer, scene, camera, model_loader, texture_loader } from './object.js';
+export { load_model } from './object.js';
+export { model_loader, texture_loader, scene, camera, renderer } from './object.js';

@@ -1,11 +1,11 @@
-export const TEST_VALUE = 80085;
+import console from "node:console";
 
 /** function to genrate a random color hex code */
-function generate_random_color () {
+export function generate_random_color () {
     const hex = "0123456879ABCDEFG";
     let color = "";
-    for (let i = 0; i < hex.length; i++) {
-        color += hex[Math.random() * hex.length];
+    for (let i = 0; i < 6; i++) {
+        color += hex.charAt(Math.random() * hex.length - 1);
     }
-    return color
+    return '#' + color;
 }

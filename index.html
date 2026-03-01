@@ -14,17 +14,17 @@
     <!-- <script src="scripts/test.mjs" type="module"></script> -->
     <!--<script type="module" src="scripts/three_manager.js"></script>-->
 </head>
-<body onload="return startup()">
-    <header onmouseover="return tabsUp()">
-        <div id="me"><iframe name="frame1" src="html/three_objects/logo.html"></iframe></div>
+<body>
+    <header >
+        <div id="me"></div>
         <div id="tabs">
             <div class="sections"><a href="#aboutme"><br>About me</a></div>
             <div class="sections"><a href="#Projects"><br>Projects</a></div>
             <div class="sections"><a href="#Socials"><br>Contact</a></div>
         </div>
     </header>
-    <div onmousemove="return tabsDown()" style="display: inline-flex;">
-        <div id="aboutme" onmouseover="return tabsDown()" style="display: inline-flex;">
+    <div style="display: inline-flex;">
+        <div id="aboutme" style="display: inline-flex;">
             <div style="float:left; width: fit-content;">
                 <p id="bio" ><h1>Hi!</h1> <br>
                 I'm a 20 year old college student, Making Indie Games and 3D Models. <br><i>I eat dreams for a living, Live to give soul to the inanimate and Connect throught creating.</i> <br>
@@ -39,7 +39,7 @@
             </figure>
         </div>
     </div>
-    <main onmouseover="return tabsDown()">
+    <main>
         <nav>
             <div id="pfp">
                 <img src="/misc/rust_eyed.png" alt="pfp">
@@ -56,7 +56,7 @@
         </nav>
         <div class="projects">
             <h1>My Works</h1>
-            <input id="HScrollL" class="scrollers" type="button" value="<" onclick="scrollL()"></input>
+            <input id="HScrollL" class="scrollers" type="button" value="<"></input>
             <div id="Projects">
                 <div class="proj_sec" id="Gizmo">
                     <img src="/misc/overtaken-fringedIris.png" alt="gizmo" class="img_left" href="html/coming_soon.html">
@@ -88,7 +88,7 @@
                     </div>
                 </div>  
             </div>
-            <input id="HScrollR" class="scrollers" type="button" value=">" onclick="scrollR()"></input>
+            <input id="HScrollR" class="scrollers" type="button" value=">"></input>
         </div>
     </main>
     <div id="filler">

@@ -1,1 +1,1 @@
-export {TEST_VALUE} from './utilities.js'
+export {generate_random_color} from './utilities.js'

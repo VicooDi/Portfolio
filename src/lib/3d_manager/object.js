@@ -2,8 +2,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 //import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+import { generate_random_color } from '/src/lib/utilities';
 
-//@ts-check
 export const model_loader = new GLTFLoader();
 export const texture_loader = new THREE.TextureLoader();
 
@@ -12,29 +12,36 @@ export const camera = new THREE.PerspectiveCamera(17, window.innerWidth / window
 
 export const renderer = new THREE.WebGLRenderer({ alpha: true }); //TODO : test for failure
 
-camera.position.set(35, 0, 0);
+// camera.position.set(35, 0, 0);
 
 const controls = new OrbitControls(camera, renderer.domElement); //TODO : remove on release
 
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild(renderer.domElement);
+// renderer.setSize( window.innerWidth, window.innerHeight );
+// document.body.appendChild(renderer.domElement);
 
 //exported functions
-    /** function to load a 3D model, meant to be given minimal parameters
-     * path : relativce path to model
-     * material : model's material
-      */
-export function load_model(path, material) {
+/** function to load a 3D model, meant to be given minimal parameters
+ * path : relativce path to model
+ * (optional) material : model's material {THREE.MeshPhongMaterial} or {THREE.MeshBasicMaterial}
+ * not providong a material result in random coloring.
+*/
+export function load_model(path, material = null) {
         model_loader.load(path, function (object) {
             //for debugging TODO : remove on release!!!
-            material = new THREE.MeshPhongMaterial({color: generate_random_color()});
-            object.scene.traverse(function(child) {
-                if (child.isMesh) { child.material = material; }
-            });
+            if (material == null) {
+                object.scene.traverse(function(child) {
+                    if (child.isMesh) {
+                        material = new THREE.MeshPhongMaterial({color: generate_random_color()});
+                        child.material = material;
+                    }
+                });
+            }
+            else {
+                object.scene.material = material;
+            }
 
             //final
             scene.add(object.scene);
-        
         }, function( xhr ){
                 console.log( (xhr.loaded / xhr.total * 100) + "% loaded")
         }, undefined, function ( error ) {

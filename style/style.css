@@ -90,6 +90,8 @@ h1{
     padding-left: 2.5%;
     padding-right: 2.5%;
     margin-left: 10%;
+
+    min-width: 250px;
 }
 #me h1{
     border: none;
