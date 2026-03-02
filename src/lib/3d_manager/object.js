@@ -13,7 +13,7 @@ export const texture_loader = new THREE.TextureLoader();
 
 export const scene = new THREE.Scene();
 
-export const camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.1, 1000);
+export var camera = new THREE.PerspectiveCamera(15, 3, 0.1, 1000);
 
 export const renderer = new THREE.WebGLRenderer({ alpha: true }); //TODO : test for failure
 

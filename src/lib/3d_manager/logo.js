@@ -8,15 +8,16 @@ import { model_loader, texture_loader, scene, camera, renderer } from '.';
 
 // alert("I AM BIRTHED!!");
 
+
 // ============ link to hmtl container =======
 
 const container = document.getElementById("me");
 
 // ============ Set Paramaters ===============
 
-camera.aspect = container.clientWidth / container.clientHeight
+// camera = new THREE.PerspectiveCamera(15, container.innerWidth / container.innerHeight, 0.1, 1000);
 
-renderer.setSize( container.clientWidth+64, container.clientHeight ); //these params are really messy FIX IT FUTURE ME!!
+renderer.setSize( container.clientWidth, container.clientHeight ); //these params are really messy FIX IT FUTURE ME!!
 container.appendChild(renderer.domElement);
 
 // ============ Fix CSS Spacing ==============
@@ -33,28 +34,33 @@ camera.lookAt(scene.position); //points at the scene origin, change to model ori
 // renderer.domElement.focus({ preventScroll : true ,focusVisible : true});
 load_model('/3d_models/logo.glb');
 
-function animate( time ) {
-  renderer.render(scene, camera);
-}
-renderer.setAnimationLoop(animate);
+var logo;
+var eyes;
+
+eventBus.addEventListener('_onloaded', (e) => {
+  console.log('model loaded:', e.detail);
+  logo = e.detail.sceneObject;
+  eyes = e.detail.sceneObject.getObjectByName("Circle");
+});
+
+// (async () => {
+//   logo = await load_model('/3d_models/logo.glb'); // requires load_model to return a Promise
+//   eyes = logo.getObjectByName("Circle");
+// })();
+
+// ============ Failed =======================
+
+// if (!logo) {
+//   alert("aaaaaaa");
+//   container.innerHTML = "<h1>VicooDi</h1>"; //test more
+//   return;
+// }
 
 // ============ Specific Functions ===========
 
 // eventEmitter.emit('_onloaded', () => {
 //   console.log('started');
 // });
-var logo;
-var eyes;
-
-var loaded = false;
-eventBus.addEventListener('_onloaded', (e) => {
-  console.log('model loaded:', e.detail);
-  logo = e.detail.sceneObject;
-  eyes = e.detail.sceneObject.getObjectByName("Circle");
-  // e.detail.sceneObject is the loaded THREE.Group/Scene
-  // set flags, assign to local variables, etc.
-  // e.g. logo = e.detail.sceneObject;
-});
 
 function getObjectPagePosition(object, camera, rendererDom) {
   let pos = new THREE.Vector3();
@@ -77,9 +83,16 @@ onmousemove = function (e) {
   const pos = getObjectPagePosition(eyes, camera, renderer.domElement);
   
   vec = new THREE.Vector3(m_pos.x - pos.x, m_pos.y - pos.y);
-  vec.normalize();
+  vec.normalize(); //might change it to clamp later to emulate a square effect.
 
   eyes.position.set(0, -vec.y, -vec.x);
 
   console.log("mouse location:", m_pos.x, m_pos.y);
 }
+
+//============= End ==========================
+
+function animate( time ) {
+  renderer.render(scene, camera);
+}
+renderer.setAnimationLoop(animate);

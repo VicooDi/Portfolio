@@ -79,20 +79,20 @@ h1{
 #me{
     color: var(--highlight1);
     background-color: var(--bg_secondary);
+    background: linear-gradient(#2c2642 0%, var(--bg_secondary) 80%);
 
     height: 64px;
-    width: fit-content;
+    width: 256px;
     letter-spacing: 6px;
     font-weight: bolder;
     font-size: 90%;
 
     float: Left;
     
-    padding-left: 1%;
-    padding-right: 1%;
+    /* padding-left: 1%;
+    padding-right: 1%; */
     margin-left: 10%;
 
-    min-width: 128px;
 }
 #me h1{
     border: none;
