@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 //import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
-import { generate_random_color } from '/src/lib/utilities';
+import { generate_random_color, getObjectAbsulotePos } from '/src/lib/utilities';
 
 //random bullshit i need
 // import { createRequire } from 'module';
@@ -13,9 +13,10 @@ export const texture_loader = new THREE.TextureLoader();
 
 export const scene = new THREE.Scene();
 
-export var camera = new THREE.PerspectiveCamera(15, 3, 0.1, 1000);
+export var camera = new THREE.PerspectiveCamera(15, 1, 0.1, 1000);
 
 export const renderer = new THREE.WebGLRenderer({ alpha: true }); //TODO : test for failure
+renderer.domElement.style.margin = 0;
 
 // camera.position.set(35, 0, 0);
 
@@ -33,36 +34,37 @@ export const eventBus = new EventTarget();
  * (optional) material : model's material {THREE.MeshPhongMaterial} or {THREE.MeshBasicMaterial}
  * not providong a material result in random coloring.*/
 export function load_model(path, material = null) {
-    let res;
+    return new Promise((resolve, reject) => { //this function promises to return either resolve or reject upon completion.
         model_loader.load(path, function (object) {
             //for debugging TODO : remove on release!!!
             if (material == null) {
-                object.scene.traverse(function(child) {
+                object.scene.traverse(function (child) {
                     if (child.isMesh) {
                         // material = new THREE.MeshPhongMaterial({color: generate_random_color()});
-                        material = new THREE.MeshBasicMaterial({color: generate_random_color()});
+                        material = new THREE.MeshBasicMaterial({ color: generate_random_color() });
                         child.material = material;
                         // child.frustumCulled = false;
                     }
                 });
             }
             else {
-                material = new THREE.MeshBasicMaterial({color: generate_random_color()});
+                material = new THREE.MeshBasicMaterial({ color: generate_random_color() });
                 object.scene.material = material;
             }
 
             //final
-            res = object.scene;
             scene.add(object.scene);
-            eventBus.dispatchEvent(new CustomEvent('_onloaded', { detail: { sceneObject: object.scene} }));
+            resolve(object.scene);
+            // eventBus.dispatchEvent(new CustomEvent('_onloaded', { detail: { sceneObject: object.scene } }));
 
-        }, function( xhr ){
-                console.log( (xhr.loaded / xhr.total * 100) + "% loaded")
-        }, undefined, function ( error ) {
+        }, function (xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + "% loaded")
+        }, undefined, function (error) {
             console.error("error loading model : " + error);
             alert("failed to load model\nplease check the console");
+            reject(error);
         });
-    return res;
+    });
 }
 
 function loop( time ) { // somhow make it so all who inherit this code shall go throught the loop

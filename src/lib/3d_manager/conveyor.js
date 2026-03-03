@@ -12,7 +12,7 @@ import { getObjectAbsulotePos } from '/src/lib/utilities';
 
 // ============ link to hmtl container =======
 
-const container = document.getElementById("me");
+const container = document.getElementById("Projects");
 
 // ============ Setup renderer & camera ======
 
@@ -23,15 +23,12 @@ container.appendChild(renderer.domElement);
 this is further cemented with the camera being perspective yet having a very low fov*/
 camera.position.set(55, 0, 0);
 camera.lookAt(scene.position); //points at the scene origin, change to model origin upon any issue arizing.
-camera.aspect = 3;
-camera.updateProjectionMatrix();
+// camera.aspect = 3;
+// camera.updateProjectionMatrix();
 
 // ============ Create Model =================
 
-// load_model('/3d_models/logo.glb');
-
 var model = undefined; //set necessary variables to store the model's pieces.
-var eyes = undefined;
 
 // eventBus.addEventListener('_onloaded', (e) => {
 //   console.log('model loaded:', e.detail);
@@ -40,9 +37,10 @@ var eyes = undefined;
 // });
 
 (async () => {
-    model = await load_model('/3d_models/logo.glb'); // requires load_model to return a Promise
+    alert("?");
+    modle = await load_model('/3d_models/conveyor.glb'); // requires load_model to return a Promise
     if (model.isObject3D) {
-      eyes = model.getObjectByName("Circle");
+        console.log("model loaded succesfully succesfully succesfully");
     }
       
 })();
@@ -60,24 +58,8 @@ function failedToLoad(error) {
 // }
 
 // ============ Specific Functions ===========
-
-
-
-var vec = new THREE.Vector3();
-onmousemove = function (e) {
-  if (!(model && eyes))
-    return;
-  var m_pos = new THREE.Vector3(e.clientX, e.clientY);
-
-  const pos = getObjectAbsulotePos(eyes, camera, renderer.domElement);
-  
-  vec = new THREE.Vector3(m_pos.x - pos.x, m_pos.y - pos.y);
-  vec.normalize(); //might change it to clamp later to emulate a square effect.
-
-  eyes.position.set(0, -vec.y, -vec.x);
-
-  console.log("mouse location:", m_pos.x, m_pos.y);
-}
+ 
+// we'll have the animation side from the conveyor moveement script here, rest will be in main
 
 //============= End ==========================
 

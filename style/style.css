@@ -14,7 +14,7 @@ header{
 
 }
 hr{
-    
+    margin-right: 2%;
     background-color:  var(--highlight1);
 }
 .sections{
@@ -147,9 +147,10 @@ h1{
 main{
     display: flex;
     justify-content: 10px;
-    margin-bottom: 5%;
+    margin-bottom: 15%;
     margin-top: 0;
-    height: 63%;
+    height: 80%;
+    min-height: 480px;
 
     margin-bottom: -11.5%;
 }
@@ -381,8 +382,7 @@ img{
     background-color: var(--bg_secondary);
     border: 2px solid var(--highlight2);
     border-radius: 5px;
-    margin: 2%;
-    margin-top: 0;
+    margin-top: 20%;
     margin-right: -15%;
     padding-left: 2%;
     padding-bottom: 2%;
