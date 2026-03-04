@@ -7,10 +7,11 @@ import { generate_random_color, getObjectAbsulotePos } from '/src/lib/utilities'
 export const model_loader = new GLTFLoader();
 export const texture_loader = new THREE.TextureLoader();
 
-const renderer_container = document.querySelector('#c');
-export const renderer = new THREE.WebGLRenderer({ antialias: false, renderer_container, alpha: true }); //TODO : test for failure
-renderer_container.appendChild( renderer.domElement );
-renderer.setSize( renderer_container.clientWidth, renderer_container.clientHeight );
+//const renderer_container = document.querySelector('#c');
+export const renderer = new THREE.WebGLRenderer({alpha: true }); //TODO : test for failure
+const renderer_container = renderer.domElement;
+document.body.appendChild( renderer_container );
+renderer.setSize( window.clientWidth, window.clientHeight );
 
 // camera.position.set(35, 0, 0);
 
@@ -76,14 +77,12 @@ function renderSceneInfo(scene, camera, container) {
 
     // if (isOffscreen)
     //     return;
- 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
- 
-    
+
     const positiveYUpBottom = renderer_container.clientHeight - bottom;
-		renderer.setScissor( left, positiveYUpBottom, width, height );
-		renderer.setViewport( left, positiveYUpBottom, width, height );
+    renderer.setScissor( left, positiveYUpBottom, width, height );
+    renderer.setViewport( left, positiveYUpBottom, width, height );
     
     console.log(left + ", " + positiveYUpBottom + ", " + width + ", " + height);
 
@@ -131,11 +130,11 @@ add this line : renderer.setAnimationLoop(loop);
 
 */
 
-function makeScene(container) {
+function makeScene(container, size = 55) {
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(15, container.clientWidth / container.clientHeight, 0.1, 1000);
-  camera.position.set(55, 0, 0);
+  camera.position.set(size, 0, 0);
   camera.lookAt(0, 0, 0);
  
   { // just keep it for now ig
@@ -167,8 +166,9 @@ export class Object {
         this.model = null;
         this.material = material;
         this.container = container;
-        this.model_path = '/3d_models/' + name;
-        this.js_path = '/src/lib/3d_manager/' + name;
+        this.model_path = '/3d_models/' + name + '.glb';
+        this.js_path = '/src/lib/3d_manager/' + name + '.js';
+        console.log(this.model_path + ', '+ this.js_path);
         
         // const { scene, camera } = makeScene(container);
         // this.scene = scene;
@@ -181,11 +181,11 @@ export class Object {
         this.scene = scene;
         this.camera = camera;
         objects.push(this);
+        console.log(objects);
     }
+
 
     setCameraParam() { //setter for camera
         
     }
-
-
 }

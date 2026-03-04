@@ -8,7 +8,7 @@ import { getObjectAbsulotePos } from '/src/lib/utilities';
 
 // alert("I AM BIRTHED!!");
 
-var object = new Object('logo', document.getElementById("me"));
+var object = new Object('logo', document.querySelector('#me'));
 
 //TODO : notable variables here for quick debugging with UI (I probably will never do this)
 
@@ -31,9 +31,9 @@ var eyes = undefined;
 // });
 
 (async () => {
-  object.model = await load_model('/3d_models/logo.glb', object.scene); // requires load_model to return a Promise
+  object.model = await load_model(object.model_path, object.scene); // requires load_model to return a Promise
   if (object.model.isObject3D) {
-    eyes = object.model.getObjectByName("Circle");
+    eyes = object.model.getObjectByName("Circle");//change thhis!!
   }
   
   // object.camera.position.set(55, 0, 0);
@@ -73,7 +73,7 @@ onmousemove = function (e) {
     return;
   var m_pos = new THREE.Vector3(e.clientX, e.clientY);
 
-  const pos = getObjectAbsulotePos(eyes, object.camera, renderer.domElement);
+  const pos = getObjectAbsulotePos(eyes, object.camera, object.container);
   
   vec = new THREE.Vector3(m_pos.x - pos.x, m_pos.y - pos.y);
   vec.normalize(); //might change it to clamp later to emulate a square effect.
