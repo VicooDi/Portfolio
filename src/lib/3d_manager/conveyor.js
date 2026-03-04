@@ -17,7 +17,7 @@ const container = document.getElementById("Projects");
 // ============ Setup renderer & camera ======
 
 renderer.setSize( container.clientWidth, container.clientHeight ); //these params are really messy FIX IT FUTURE ME!!
-container.appendChild(renderer.domElement);
+// container.appendChild(renderer.domElement);
 
 /*most cameras would be facing X, so the X value represents scale rather then distance
 this is further cemented with the camera being perspective yet having a very low fov*/

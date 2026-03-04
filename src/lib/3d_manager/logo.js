@@ -2,35 +2,26 @@ import * as THREE from 'three';
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 import { load_model, eventBus } from '.';
-import { model_loader, texture_loader, scene, camera, renderer } from '.';
+import { model_loader, texture_loader, renderer, Object } from '.';
 
 import { getObjectAbsulotePos } from '/src/lib/utilities';
 
 // alert("I AM BIRTHED!!");
 
+var object = new Object('logo', document.getElementById("me"));
+
 //TODO : notable variables here for quick debugging with UI (I probably will never do this)
 
 // ============ link to hmtl container =======
 
-const container = document.getElementById("me");
+// const container = ;
 
-// ============ Setup renderer & camera ======
-
-renderer.setSize( container.clientWidth, container.clientHeight ); //these params are really messy FIX IT FUTURE ME!!
-container.appendChild(renderer.domElement);
-
-/*most cameras would be facing X, so the X value represents scale rather then distance
-this is further cemented with the camera being perspective yet having a very low fov*/
-camera.position.set(55, 0, 0);
-camera.lookAt(scene.position); //points at the scene origin, change to model origin upon any issue arizing.
-camera.aspect = 3;
-camera.updateProjectionMatrix();
 
 // ============ Create Model =================
 
 // load_model('/3d_models/logo.glb');
 
-var model = undefined; //set necessary variables to store the model's pieces.
+// var object = undefined; //set necessary variables to store the model's pieces.
 var eyes = undefined;
 
 // eventBus.addEventListener('_onloaded', (e) => {
@@ -40,12 +31,25 @@ var eyes = undefined;
 // });
 
 (async () => {
-    model = await load_model('/3d_models/logo.glb'); // requires load_model to return a Promise
-    if (model.isObject3D) {
-      eyes = model.getObjectByName("Circle");
-    }
+  object.model = await load_model('/3d_models/logo.glb', object.scene); // requires load_model to return a Promise
+  if (object.model.isObject3D) {
+    eyes = object.model.getObjectByName("Circle");
+  }
+  
+  // object.camera.position.set(55, 0, 0);
+  // object.camera.lookAt(object.scene.position); //points at the scene origin, change to model origin upon any issue arizing.
+  // object.camera.aspect = 3;
+  // object.camera.updateProjectionMatrix();
       
 })();
+
+// ============ Setup renderer & camera ======
+
+// container.appendChild(renderer.domElement);
+
+/*most cameras would be facing X, so the X value represents scale rather then distance
+this is further cemented with the camera being perspective yet having a very low fov*/
+
 
 // ============ on Failed ====================
 
@@ -65,23 +69,23 @@ function failedToLoad(error) {
 
 var vec = new THREE.Vector3();
 onmousemove = function (e) {
-  if (!(model && eyes))
+  if (!(object.model && eyes))
     return;
   var m_pos = new THREE.Vector3(e.clientX, e.clientY);
 
-  const pos = getObjectAbsulotePos(eyes, camera, renderer.domElement);
+  const pos = getObjectAbsulotePos(eyes, object.camera, renderer.domElement);
   
   vec = new THREE.Vector3(m_pos.x - pos.x, m_pos.y - pos.y);
   vec.normalize(); //might change it to clamp later to emulate a square effect.
 
   eyes.position.set(0, -vec.y, -vec.x);
 
-  console.log("mouse location:", m_pos.x, m_pos.y);
+  // console.log("mouse location:", m_pos.x, m_pos.y);
 }
 
 //============= End ==========================
 
-function animate( time ) {
-  renderer.render(scene, camera);
-}
-renderer.setAnimationLoop(animate);
+// function animate( time ) {
+//   renderer.render(scene, camera);
+// }
+// renderer.setAnimationLoop(animate);

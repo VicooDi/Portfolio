@@ -5,7 +5,8 @@ var tabs_moved = 0;
 
 //detect the loading of the bare bones page then excute certain timely instructions
 document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to load before running the script, prevents null errors
-    
+    loadJS('/src/lib/3d_manager/object.js', document.head);
+
     //========= Loading JS Scripts ============
 
     const me = document.getElementById('me');
@@ -14,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to loa
     if (me) {
         loadJS('/src/lib/3d_manager/logo.js', document.head);
     }
-    if (projects) {
-        loadJS('/src/lib/3d_manager/conveyor.js', document.head);
-    }
+    // if (projects) {
+    //     loadJS('/src/lib/3d_manager/conveyor.js', document.head);
+    // }
         
     
     //========= Adding HTML Events ============
