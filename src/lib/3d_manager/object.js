@@ -8,10 +8,23 @@ export const model_loader = new GLTFLoader();
 export const texture_loader = new THREE.TextureLoader();
 
 //const renderer_container = document.querySelector('#c');
-export const renderer = new THREE.WebGLRenderer({alpha: true }); //TODO : test for failure
-const renderer_container = renderer.domElement;
-document.body.appendChild( renderer_container );
-renderer.setSize( window.clientWidth, window.clientHeight );
+
+export let renderer = null;
+let renderer_container = null;
+/** *only called once.* returns a promise of the ``renderer`` or ``null`` on error or a second call */
+export function init_renderer() {
+    return new Promise((resolve) => {
+        if (render != null)
+            resolve(renderer);
+        renderer = new THREE.WebGLRenderer({alpha: true }); //TODO : test for failure
+        renderer_container = renderer.domElement;
+        document.body.appendChild( renderer_container );
+        renderer.setSize(window.clientWidth, window.clientHeight);
+        resolve(renderer);
+        //start the loop once the renderer is ready.
+        requestAnimationFrame(render);
+    });
+}
 
 // camera.position.set(35, 0, 0);
 
@@ -120,7 +133,6 @@ function render(time) {
  
   requestAnimationFrame(render);
 }
-requestAnimationFrame(render);
 
 //=========> HOW TO USE :
 /*this script is supposed to be attached to any child script and used straight up, but s>certain js limitations 
@@ -181,7 +193,7 @@ export class Object {
         this.scene = scene;
         this.camera = camera;
         objects.push(this);
-        console.log(objects);
+        // console.log(objects);
     }
 
 

@@ -1,49 +1,71 @@
 // import { TEST_VALUE } from "./lib/utilities"; //automatically iumports the index.js in that folder
 // alert(TEST_VALUE);
+import { init_renderer } from './lib/3d_manager/index.js';
 
 var tabs_moved = 0;
+
+let renderer = null;
+
+//========= Emitters ============
+
+const eventBus = new EventTarget();
 
 //detect the loading of the bare bones page then excute certain timely instructions
 document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to load before running the script, prevents null errors
     loadJS('/src/lib/3d_manager/object.js', document.head);
+    (async () => {
+        renderer = await init_renderer();//only proceeds if the renderer has been found
 
-    //========= Loading JS Scripts ============
+        //========= Loading JS Scripts ============
 
-    const me = document.getElementById('me');
-    const projects = document.getElementById('Projects');
-    
-    if (me) {
-        loadJS('/src/lib/3d_manager/logo.js', document.head);
-    }
-    // if (projects) {
-    //     loadJS('/src/lib/3d_manager/conveyor.js', document.head);
-    // }
+        const me = document.getElementById('me');
+        const projects = document.getElementById('Projects');
         
-    
-    //========= Adding HTML Events ============
-
-    const header = document.querySelector('header');
-    const email_tooltip = document.getElementsByClassName("tooltip");
-    const scrollerL = document.getElementById('HScrollL');
-    const scrollerR = document.getElementById('HScrollR');
-
-        //respective actions
-    if (header != null) {
-        header.addEventListener('mouseover', tabsUp);
-        header.addEventListener('mouseout', tabsDown);
-    }
-    if (email_tooltip != null) {
-        for (let i = 0; i < email_tooltip.length; i++) {
-            email_tooltip[i].addEventListener('click', copyEmailToClipBoard);
-            email_tooltip[i].addEventListener('mouseout', resetToolTip);
+        if (me) {
+            await loadJS('/src/lib/3d_manager/logo.js', document.head);
         }
-    }
-    if(scrollL != null) {
-        scrollerL.addEventListener('click', scrollL);
-        scrollerR.addEventListener('click', scrollR);
-    }
+        // if (projects) {
+        //     await loadJS('/src/lib/3d_manager/conveyor.js', document.head);
+        // }
+            
+        
+        //========= Adding HTML Events ============
+
+        const header = document.querySelector('header');
+        const email_tooltip = document.getElementsByClassName("tooltip");
+        const scrollerL = document.getElementById('HScrollL');
+        const scrollerR = document.getElementById('HScrollR');
+
+            //respective actions
+        if (header != null) {
+            header.addEventListener('mouseover', tabsUp);
+            header.addEventListener('mouseout', tabsDown);
+        }
+        if (email_tooltip != null) {
+            for (let i = 0; i < email_tooltip.length; i++) {
+                email_tooltip[i].addEventListener('click', copyEmailToClipBoard);
+                email_tooltip[i].addEventListener('mouseout', resetToolTip);
+            }
+        }
+        if(scrollL != null) {
+            scrollerL.addEventListener('click', scrollL);
+            scrollerR.addEventListener('click', scrollR);
+        }
+
+        eventBus.dispatchEvent(new CustomEvent('fullyLoaded')); //loading screen finished here
+    })();
+
 });
 
+document.addEventListener('fullyLoaded', () => { 
+    alert("fully loaded");
+    const loading_screen = document.getElementById('loading_screen');
+    loading_screen.remove();
+    // if (loading_screen) {
+    //     loading_screen.style.animation = "fade_out 1s ease";
+    //     loading_screen.style.animationFillMode = "forwards";
+    // }
+ });
 
 //the respective functions in question
 function tabsUp() {
@@ -107,13 +129,16 @@ function resetToolTip() {
 
 
 /** loads a JS file from `path` to `target`*/
-function loadJS(path, target) {
+async function loadJS(path, target) {
     let script = document.createElement("script");
     script.onload = () => {
         //do stuff with the script
+        return new Promise().resolve();
     };
     script.type = "module";
     script.src = path;
     //EX : target = document.head
     target.appendChild(script);
+
+
 }
