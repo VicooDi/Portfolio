@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to loa
         const me = document.getElementById('me');
         const projects = document.getElementById('Projects');
         
-        if (me) {
+        if (me) { //move this the object class initialization for consistency
             await loadJS('/src/lib/3d_manager/logo.js', document.head);
         }
-        // if (projects) {
-        //     await loadJS('/src/lib/3d_manager/conveyor.js', document.head);
-        // }
+        if (projects) {
+            await loadJS('/src/lib/3d_manager/conveyor.js', document.head);
+        }
             
         
         //========= Adding HTML Events ============
@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to loa
 
 });
 
-document.addEventListener('fullyLoaded', () => { 
-    alert("fully loaded");
+eventBus.addEventListener('fullyLoaded', () => { 
+    // alert("fully loaded");
     const loading_screen = document.getElementById('loading_screen');
     loading_screen.remove();
     // if (loading_screen) {

@@ -37,10 +37,37 @@ header{
     margin-left: auto; 
 
 }
-hr{
-    margin-right: 2%;
-    background-color:  var(--highlight1);
+
+/*this section here is shamlessly stolen from https://github.com/bennyxguo/Obsidian-Obsidianite/blob/main/obsidian.css : line 581 *great theme btw*
+* matter of fact this entier css file is heavily inspired by said theme, it's just that this section the only one copy pasted from the repo, but credir to the original aurther for such lovely work!
+* if you use obsidian I highly recommend the Obsidianite theme.
+*/
+hr,
+.markdown-preview-view hr {
+  margin-block-start: 4em;
+  margin-block-end: 4em;
+  border: none;
+  height: 0;
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to right, var(--bg_secondary), var(--highlight1), var(--bg_secondary));
 }
+
+hr::after,
+.markdown-preview-view hr::after {
+  content: '★';
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: 50% 50%;
+  padding: 0.5rem;
+  color: var(--highlight2);
+  background-color: var(--bg_secondary);
+}
+/*end of shame*/
+
 .sections{
     
     min-width: 100px;

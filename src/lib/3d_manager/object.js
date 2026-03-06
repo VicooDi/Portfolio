@@ -77,27 +77,37 @@ export function load_model(path, objectScene, material = null) {
     });
 }
 
+let headerBtm = null;
+document.addEventListener('DOMContentLoaded', () => {headerBtm = document.querySelector('header').clientHeight.getBoundingClientRect().bottom });
+
 function renderSceneInfo(scene, camera, container) {
 
     // get the viewport relative position of this element
     const { left, right, top, bottom, width, height } = container.getBoundingClientRect();
 
-    // const isOffscreen =
-    //     bottom < 0 ||
-    //     top > renderer.domElement.clientHeight ||
-    //     right < 0 ||
-    //     left > renderer.domElement.clientWidth;
+    const isOffscreen =
+        bottom < 0 ||
+        top > renderer.domElement.clientHeight ||
+        right < 0 ||
+        left > renderer.domElement.clientWidth;
 
-    // if (isOffscreen)
-    //     return;
+    if (isOffscreen)
+        return;
+
+    if (headerBtm != null) {
+        const clampHeader = 
+        
+    }
+        
+        
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
     const positiveYUpBottom = renderer_container.clientHeight - bottom;
     renderer.setScissor( left, positiveYUpBottom, width, height );
-    renderer.setViewport( left, positiveYUpBottom, width, height );
+    renderer.setViewport( left, positiveYUpBottom, width, height);
     
-    console.log(left + ", " + positiveYUpBottom + ", " + width + ", " + height);
+    // console.log(renderer.domElement.clientHeight + ", " + (renderer.domElement.clientHeight - document.querySelector('header').clientHeight));
 
     renderer.render(scene, camera);
 }
@@ -146,7 +156,7 @@ function makeScene(container, size = 55) {
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(15, container.clientWidth / container.clientHeight, 0.1, 1000);
-  camera.position.set(size, 0, 0);
+  camera.position.set(size, 10, 0);
   camera.lookAt(0, 0, 0);
  
   { // just keep it for now ig
@@ -197,7 +207,9 @@ export class Object {
     }
 
 
-    setCameraParam() { //setter for camera
-        
+    setCameraParam(x=0, y=0, z=0, look = true) { //setter for camera
+        this.camera.position.set(x, y, z);
+        if(look)
+            this.camera.lookAt(0, 0, 0);
     }
 }
