@@ -17,13 +17,22 @@ export function init_renderer() {
     return new Promise((resolve) => {
         if (render != null)
             resolve(renderer);
-        renderer = new THREE.WebGLRenderer({alpha: true }); //TODO : test for failure
+        try {
+            // renderer = new THREE.WebGPURenderer({ alpha: true }); //WebGPURenderer makes the client rely more on the GPU if the browser allows it, if not it falls back to WebGLRenderer.
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+        }
+        catch (error) {
+            alert(error + ", please visit : https://get.webgl.org/ to double check");
+            alert(error.type);
+            //might use https://www.jsdelivr.com/package/npm/sweetalert2 here instead
+            // reject(error);
+        }
         renderer_container = renderer.domElement;
         document.body.appendChild( renderer_container );
         renderer.setSize(window.clientWidth, window.clientHeight);
-        resolve(renderer);
         //start the loop once the renderer is ready.
         requestAnimationFrame(render);
+        resolve(renderer);
     });
 }
 

@@ -15,19 +15,21 @@ document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to loa
     loadJS('/src/lib/3d_manager/object.js', document.head);
     (async () => {
         renderer = await init_renderer();//only proceeds if the renderer has been found
-
-        //========= Loading JS Scripts ============
-
-        const me = document.getElementById('me');
-        const projects = document.getElementById('Projects');
         
-        if (me) { //move this the object class initialization for consistency
-            await loadJS('/src/lib/3d_manager/logo.js', document.head);
-        }
-        if (projects) {
-            await loadJS('/src/lib/3d_manager/conveyor.js', document.head);
-        }
+        // alert(renderer);
+        if (!Error.isError(renderer) || renderer != null) {
+            //========= Loading JS Scripts ============
+
+            const me = document.getElementById('me');
+            const projects = document.getElementById('Projects');
             
+            if (me) { //move this the object class initialization for consistency
+                await loadJS('/src/lib/3d_manager/logo.js', document.head);
+            }
+            if (projects) {
+                await loadJS('/src/lib/3d_manager/conveyor.js', document.head);
+            }
+        }
         
         //========= Adding HTML Events ============
 
@@ -65,7 +67,7 @@ eventBus.addEventListener('fullyLoaded', () => {
     //     loading_screen.style.animation = "fade_out 1s ease";
     //     loading_screen.style.animationFillMode = "forwards";
     // }
- });
+});
 
 //the respective functions in question
 function tabsUp() {
@@ -131,14 +133,15 @@ function resetToolTip() {
 /** loads a JS file from `path` to `target`*/
 async function loadJS(path, target) {
     let script = document.createElement("script");
-    script.onload = () => {
-        //do stuff with the script
-        return new Promise().resolve();
-    };
     script.type = "module";
     script.src = path;
     //EX : target = document.head
     target.appendChild(script);
+
+    script.onload = () => {
+        //do stuff with the script
+        return new Promise().resolve();
+    };
 
 
 }

@@ -35,6 +35,11 @@ var eyes = undefined;
   if (object.model.isObject3D) {
     eyes = object.model.getObjectByName("Circle");//change thhis!!
   }
+  else if(Error.isError(object.model)) {
+    alert("Failed to load model, check console for more details");
+    console.error(object.model);
+    return;
+  }
   
   // object.camera.position.set(55, 0, 0);
   // object.camera.lookAt(object.scene.position); //points at the scene origin, change to model origin upon any issue arizing.

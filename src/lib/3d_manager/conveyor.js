@@ -18,7 +18,12 @@ var object = new Object('conveyor', document.querySelector('#Projects'));
   object.model = await load_model(object.model_path, object.scene); // requires load_model to return a Promise
 //   if (object.model.isObject3D) {
 //     eyes = object.model.getObjectByName("Circle");//change thhis!!
-//   }
+  //   }
+  if(Error.isError(object.model)) {
+    alert("Failed to load model, check console for more details");
+    console.error(object.model);
+    return;
+  }
   
   // object.camera.position.set(55, 0, 0);
   // object.camera.lookAt(object.scene.position); //points at the scene origin, change to model origin upon any issue arizing.
