@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 //import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { generate_random_color, getObjectAbsulotePos } from '/src/lib/utilities';
+import { clamp } from 'three/src/math/MathUtils.js';
 
 export const model_loader = new GLTFLoader();
 export const texture_loader = new THREE.TextureLoader();
@@ -78,7 +79,7 @@ export function load_model(path, objectScene, material = null) {
 }
 
 let headerBtm = null;
-document.addEventListener('DOMContentLoaded', () => {headerBtm = document.querySelector('header').clientHeight.getBoundingClientRect().bottom });
+document.addEventListener('DOMContentLoaded', () => {headerBtm = document.querySelector('header').getBoundingClientRect().bottom });
 
 function renderSceneInfo(scene, camera, container) {
 
@@ -94,17 +95,17 @@ function renderSceneInfo(scene, camera, container) {
     if (isOffscreen)
         return;
 
-    if (headerBtm != null) {
-        const clampHeader = 
-        
+    let clampHeader = height;
+    if (top < headerBtm && container.id != "me") {
+        // alert("aaa 7amma!!" + top + ", " + headerBtm + container.id);
+        clampHeader = clamp(height, 0, bottom - headerBtm);
     }
-        
         
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
     const positiveYUpBottom = renderer_container.clientHeight - bottom;
-    renderer.setScissor( left, positiveYUpBottom, width, height );
+    renderer.setScissor( left, positiveYUpBottom, width, clampHeader );
     renderer.setViewport( left, positiveYUpBottom, width, height);
     
     // console.log(renderer.domElement.clientHeight + ", " + (renderer.domElement.clientHeight - document.querySelector('header').clientHeight));
