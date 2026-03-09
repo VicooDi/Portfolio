@@ -82,14 +82,15 @@ hr::after,
     src: url("/misc/fonts/NeomatrixCode.ttf");
     font-display: swap;
 }
-html{
+/* html{
     height: 240%;
     animation: "bg_anim" 36s linear infinite ;
-    background:repeat url("/misc/pattern.png")
-
-    , linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 75%, var(--bg) 90%);
+    background:repeat url("/misc/pattern.png"),
+    linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 75%, var(--bg) 90%);
     image-rendering:pixelated;
-}
+    /* background-color: transparent; */
+    /* z-index: -100; */
+/* }  */
 body
 {
     padding: 0;
