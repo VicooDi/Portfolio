@@ -140,7 +140,9 @@ async function loadJS(path, target) {
 
     script.onload = () => {
         //do stuff with the script
-        return new Promise().resolve();
+        return new Promise((resolve) => {
+            resolve();
+        });
     };
 
 

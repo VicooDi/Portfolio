@@ -8,8 +8,6 @@ import { clamp } from 'three/src/math/MathUtils.js';
 export const model_loader = new GLTFLoader();
 export const texture_loader = new THREE.TextureLoader();
 
-//const renderer_container = document.querySelector('#c');
-
 export let renderer = null;
 let renderer_container = null;
 /** *only called once.* returns a promise of the ``renderer`` or ``null`` on error or a second call */
@@ -90,28 +88,29 @@ export function load_model(path, objectScene, material = null) {
 let headerBtm = null;
 document.addEventListener('DOMContentLoaded', () => {headerBtm = document.querySelector('header').getBoundingClientRect().bottom });
 
-function renderSceneInfo(scene, camera, container) {
+function renderSceneInfo(object) {
 
     // get the viewport relative position of this element
-    const { left, right, top, bottom, width, height } = container.getBoundingClientRect();
+    const { left, right, top, bottom, width, height } = object.container.getBoundingClientRect();
 
-    const isOffscreen =
+    object.onScreen =
         bottom < 0 ||
         top > renderer.domElement.clientHeight ||
         right < 0 ||
         left > renderer.domElement.clientWidth;
 
-    if (isOffscreen)
+    
+    if (object.onScreen)
         return;
 
     let clampHeader = height;
-    if (top < headerBtm && container.id != "me") {
-        // alert("aaa 7amma!!" + top + ", " + headerBtm + container.id);
+    if (top < headerBtm && object.container.id != "me") {
+        // alert("aaa 7amma!!" + top + ", " + headerBtm + object.container.id);
         clampHeader = clamp(height, 0, bottom - headerBtm);
     }
         
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
+    object.camera.aspect = width / height;
+    object.camera.updateProjectionMatrix();
 
     const positiveYUpBottom = renderer_container.clientHeight - bottom;
     renderer.setScissor( left, positiveYUpBottom, width, clampHeader );
@@ -119,7 +118,7 @@ function renderSceneInfo(scene, camera, container) {
     
     // console.log(renderer.domElement.clientHeight + ", " + (renderer.domElement.clientHeight - document.querySelector('header').clientHeight));
 
-    renderer.render(scene, camera);
+    renderer.render(object.scene, object.camera);
 }
 
 function resizeRendererToDisplaySize( renderer ) {
@@ -148,7 +147,7 @@ function render(time) {
     renderer.setScissorTest(true);
  
     objects.forEach(child => {
-        renderSceneInfo(child.scene, child.camera, child.container);
+        renderSceneInfo(child);
     });
  
   requestAnimationFrame(render);
@@ -214,6 +213,7 @@ export class Object {
         this.camera = camera;
         objects.push(this);
         // console.log(objects);
+        this.onScreen = false;
     }
 
 
