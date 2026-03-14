@@ -5,6 +5,8 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';//for deb
 import { load_model, eventBus } from '.';
 import { Object } from '.';
 
+import { clamp } from 'three/src/math/MathUtils.js';
+
 // ============ Create Model =================
 
 var object = new Object('conveyor', document.querySelector('#Projects'));
@@ -31,26 +33,30 @@ function failedToLoad(error) {
 
 // ============ Specific Functions ===========
 
-
 const pointer = new THREE.Vector2();
 let raycaster = new THREE.Raycaster();
 
 onmousemove = function (e) {
   if (!(object.model) && object.onScreen)
     return;
+
+  const { left, right, top, bottom, width, height } = object.container.getBoundingClientRect();
+
+  const mouse = new THREE.Vector2();
+  mouse.x = clamp(e.clientX, left, right);
+  mouse.y = clamp(e.clientY, top, bottom);
   
-  pointer.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-  pointer.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
-  console.log("mouse pos = ", pointer);
+  pointer.x = ( (mouse.x - left) / width ) * 2 - 1; 
+  pointer.y = - ( (mouse.y - top) / height ) * 2 + 1;  
+  //console.log("pointer pos = ", pointer);
 
   raycaster.setFromCamera(pointer, object.camera);
 
-  //TODO : scrap the raycasting stuff or research ot more, it seems to not be entierly compatable with my approach
-  //instead test the `getObjectAbsulotePos` methode with fixed positions, the downside is that the position is fixed.
-  
   const intersects = raycaster.intersectObjects(object.scene.children, true);
   if (intersects.length > 0) {
     let INTERSECTED = intersects[0].object;
-    console.log("found a target!",INTERSECTED);
+    console.log("found a target!", INTERSECTED);
+    INTERSECTED.material.color = "#ffffff";
+
   }
 }
