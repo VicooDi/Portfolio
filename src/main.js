@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to loa
 
         const header = document.querySelector('header');
         const email_tooltip = document.getElementsByClassName("tooltip");
-        const scrollerL = document.getElementById('HScrollL');
-        const scrollerR = document.getElementById('HScrollR');
+        // const scrollerL = document.getElementById('HScrollL');
+        // const scrollerR = document.getElementById('HScrollR');
 
             //respective actions
         if (header != null) {
@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => { //waits for the DOM to loa
                 email_tooltip[i].addEventListener('mouseout', resetToolTip);
             }
         }
-        if(scrollL != null) {
-            scrollerL.addEventListener('click', scrollL);
-            scrollerR.addEventListener('click', scrollR);
-        }
+        // if(scrollL != null) {
+        //     scrollerL.addEventListener('click', scrollL);
+        //     scrollerR.addEventListener('click', scrollR);
+        // }
 
         eventBus.dispatchEvent(new CustomEvent('fullyLoaded')); //loading screen finished here
     })();

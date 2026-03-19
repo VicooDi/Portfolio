@@ -392,20 +392,23 @@ img{
     overflow: hidden;
     overflow-x:scroll;
     /* white-space: nowrap; */
-    height:75%;
+    height:86.46%;
     text-wrap: nowrap;
     position: sticky;
     display: inline-block;
-    width: 92%;
+    width: 106%;
+    margin-left: -60px;
     /* clear: both; */
 }
 #Projects div{
     margin-right: -21%;
     position: relative;
-    width: 75%;
+    width: 76%;
     margin-left: 0%;
     padding: 0%;
     text-wrap:wrap;
+    margin-bottom: 50px;
+    margin-right: 5px;
 }
 
 .scrollers{ /*this represents the 2 button for scrolling*/

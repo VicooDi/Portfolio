@@ -17,7 +17,7 @@ export function init_renderer() {
             resolve(renderer);
         try {
             // renderer = new THREE.WebGPURenderer({ alpha: true }); //WebGPURenderer makes the client rely more on the GPU if the browser allows it, if not it falls back to WebGLRenderer.
-            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         }
         catch (error) {
             alert(error + ", please visit : https://get.webgl.org/ to double check");
@@ -55,7 +55,7 @@ export function load_model(path, objectScene, material = null) {
     return new Promise((resolve, reject) => { //this function promises to return either resolve or reject upon completion.
         model_loader.load(path, function (object) {
             //for debugging TODO : remove on release!!!
-            if (material == null) {
+            if (material == null && false) {
                 object.scene.traverse(function (child) {
                     if (child.isMesh) {
                         // material = new THREE.MeshPhongMaterial({color: generate_random_color()});
@@ -66,13 +66,13 @@ export function load_model(path, objectScene, material = null) {
                 });
             }
             else {
-                material = new THREE.MeshBasicMaterial({ color: generate_random_color() });
+                material = new THREE.MeshBasicMaterial({ map: object.texture });
                 object.scene.material = material;
             }
 
             //final
             objectScene.add(object.scene);
-            resolve(object.scene);
+            resolve(object);
             // eventBus.dispatchEvent(new CustomEvent('_onloaded', { detail: { sceneObject: object.scene } }));
 
         }, function (xhr) {
@@ -137,17 +137,21 @@ function resizeRendererToDisplaySize( renderer ) {
 
 }
 
+var timer = new THREE.Timer();
+timer.connect(document);
+
 function render(time) {
-    time *= 0.001;
+    timer.update();
     
     resizeRendererToDisplaySize(renderer);
     
     renderer.setScissorTest(false);
     renderer.clear(true, true);
     renderer.setScissorTest(true);
- 
+
     objects.forEach(child => {
         renderSceneInfo(child);
+        if (child.mixer) child.mixer.update(timer.getDelta());
     });
  
   requestAnimationFrame(render);
@@ -179,6 +183,7 @@ function makeScene(container, size = 55) {
   return {scene, camera};
 }
 
+var objects = [];
 /**a class to create and preserve 3D models with all necessary data and functions.
 
  * `name` : 3D model's name
@@ -190,8 +195,6 @@ function makeScene(container, size = 55) {
  * **NOTE :** this implementation relyes on the fact that the model and js file share the same name,
  * and that they are both placed in '/3d_models/' and '/src/lib/3d_manager/' respectevly.
  */
-
-var objects = [];
 export class Object {
     constructor(name, container, material = null) {
         this.model = null;
@@ -199,27 +202,36 @@ export class Object {
         this.container = container;
         this.model_path = '/3d_models/' + name + '.glb';
         this.js_path = '/src/lib/3d_manager/' + name + '.js';
-        console.log(this.model_path + ', '+ this.js_path);
+        console.log(this.model_path + ', ' + this.js_path);
+
+        this.texture = await texture_loader.loadAsync('/misc/main_texture.png');
+        
         
         // const { scene, camera } = makeScene(container);
         // this.scene = scene;
         // this.camera = camera;
-        this.start();
-    }
-    
-    start() {
         const { scene, camera } = makeScene(this.container);
         this.scene = scene;
         this.camera = camera;
         objects.push(this);
         // console.log(objects);
         this.onScreen = false;
+        // this.start();
+    }
+    
+    start() {
+
+        // animations :
+        this.mixer = new THREE.AnimationMixer(this.scene);
+        this.animations = this.model.animations; //no clue
+        // alert("first");
     }
 
 
-    setCameraParam(x=0, y=0, z=0, look = true) { //setter for camera
+    setCameraParam(x=this.camera.position.x, y=this.camera.position.y, z=this.camera.position.z, look = true) { //setter for camera
         this.camera.position.set(x, y, z);
         if(look)
             this.camera.lookAt(0, 0, 0);
+        // console.log("camera position set to : ", this.camera.position);
     }
 }
