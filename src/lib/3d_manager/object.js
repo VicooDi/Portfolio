@@ -204,7 +204,7 @@ export class Object {
         this.js_path = '/src/lib/3d_manager/' + name + '.js';
         console.log(this.model_path + ', ' + this.js_path);
 
-        this.texture = await texture_loader.loadAsync('/misc/main_texture.png');
+        //this.texture = await texture_loader.loadAsync('/misc/main_texture.png');
         
         
         // const { scene, camera } = makeScene(container);

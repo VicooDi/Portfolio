@@ -60,7 +60,7 @@ function bttn_pushed(bttn) {
   // });
   console.log("object : ", object);
   // console.log("model : ", object.model);
-  object.model.scene.texture.offset.y += 0.5;
+  //object.model.scene.texture.offset.y += 0.5;
   
   if (bttn == "bttn_left") {//it's named left but it's actually on the right
     object.mixer.timeScale = 1;
