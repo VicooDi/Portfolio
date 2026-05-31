@@ -1,23 +1,88 @@
 @import url("color_pallette.css");
 
+/* canvas{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: b1lock;
+  z-index: 3;
+
+  pointer-events:none; 
+} */
+
+@font-face {
+    font-family: NeoMatrixCode;
+    src: url("fonts/NeomatrixCode.ttf");
+    font-display: swap;
+}
+@font-face {
+    font-family: GIZMO;
+    src: url("fonts/GIZMO.ttf");
+    font-display: swap;
+}
+
+#loading_screen{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+
+    background-color: var(--bg);
+}
+
 header{
     background-color: var(--bg);
     display: flex;
     position:fixed;
-    z-index: 100;
+    z-index: 2;
     width: 100%;
 }
 #tabs{
     display: flex;
     float :right;
-    
     margin-left: auto; 
 
 }
-hr{
-    
-    background-color:  var(--highlight1);
+
+/*this section here is shamlessly stolen from https://github.com/bennyxguo/Obsidian-Obsidianite/blob/main/obsidian.css : line 581 *great theme btw*
+* matter of fact this entier css file is heavily inspired by said theme, it's just that this section the only one copy pasted from the repo, but credit to the original aurther for such lovely work!
+* if you use obsidian I highly recommend the Obsidianite theme.
+*/
+hr, .markdown-preview-view hr {
+  margin-block-start: 4em;
+  margin-block-end: 4em;
+  border: none;
+  height: 0;
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to right, var(--bg_secondary), var(--highlight1), var(--bg_secondary));
+  margin: 0px 4px; /*might need tweeking*/
 }
+
+hr::after,
+.markdown-preview-view hr::after {
+  content: '✧';
+  font-size: large;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: 50% 50%;
+  padding: 0.5rem;
+  color: var(--highlight2);
+  background-color: var(--bg_secondary);
+  text-shadow:  
+    0 0 3px var(--highlight1),  /* Very small glow */  
+    0 0 6px var(--highlight1),  /* Moderate glow */  
+    0 0 12px var(--highlight2); /* Softly diffused glow */ 
+}
+
 .sections{
     
     min-width: 100px;
@@ -27,19 +92,16 @@ hr{
     background-color: var(--bg_secondary);
     margin-left: 5px;
 }
-@font-face {
-    font-family: NeoMatrixCode;
-    src: url("../misc/fonts/NeomatrixCode.ttf");
-    font-display: swap;
-}
-html{
-    height: 240%;
-    animation: "bg_anim" 36s linear infinite ;
-    background:repeat url("../misc/pattern.png")
 
-    , linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 75%, var(--bg) 90%);
+html{
+    /* height: 240%; */
+    animation: "bg_anim" 60s linear infinite ;
+    background:repeat url("fonts/pattern.png"),
+    linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 55%, var(--bg) 90%);
     image-rendering:pixelated;
-}
+    /* background-color: transparent; */
+    z-index: -3;
+} 
 body
 {
     padding: 0;
@@ -49,7 +111,7 @@ body
 
 
     color: var(--text);
-    font-family: "NeoMatrixCode", monospace;
+    font-family: "neomatrix code", monospace;
 
     display: grid;
     grid-template-rows: auto auto auto;
@@ -80,17 +142,20 @@ h1{
 #me{
     color: var(--highlight1);
     background-color: var(--bg_secondary);
+    background: linear-gradient(#2c2642 0%, var(--bg_secondary) 80%);
 
     height: 64px;
+    width: 256px;
     letter-spacing: 6px;
     font-weight: bolder;
     font-size: 90%;
 
     float: Left;
     
-    padding-left: 2.5%;
-    padding-right: 2.5%;
+    /* padding-left: 1%;
+    padding-right: 1%; */
     margin-left: 10%;
+
 }
 #me h1{
     border: none;
@@ -99,7 +164,7 @@ h1{
     font-size: x-large;
     margin: 2.5%;
     font-size: 300%;
-    font-family: "neomatrix code";
+    font-family: "NeoMatrixCode";
     font-weight: bolder;
     width: fit-content;
 }
@@ -117,7 +182,7 @@ h1{
 
     margin: 2%;
 
-    margin-top: 12%;
+    margin-top: 9%;
     margin-bottom: 0;
 
     background-color: var(--bg_secondary);
@@ -129,7 +194,7 @@ h1{
 }
 #vector{
     float: right;
-    margin-top: 11%;
+    margin-top: 8%;
     margin-right: -.5%;
     margin-left: -15%;
     width: 25%;
@@ -143,30 +208,35 @@ h1{
     width: 99%;
 }
 main{
+    
     display: flex;
     justify-content: 10px;
-    margin-bottom: 5%;
+    margin-bottom: 15%;
     margin-top: 0;
-    height: 63%;
+    height: 80%;
+    min-height: 480px;
 
     margin-bottom: -11.5%;
 }
+
 .projects{
     background-color: var(--bg);
     height: 100%;
     float: left;
 
     width: 100%;
+    height: fit-content;
 
     background-color: var(--bg_secondary);
     border: 2px solid var(--highlight2);
     border-radius: 5px;
-    margin: 2%;
-    margin-left: 0%;
+    /* margin: 2%; */
     margin-right: -15%;
     margin-top: 2%;
-    padding-left: 2%;
-    padding-bottom: 6%;
+    margin-bottom: 18%;
+    padding-left: 40px; /*same width as scroller*/
+    padding-right: 40px; /*same width as scroller*/
+    padding-bottom: 0%;
 }
 .projects p{
     text-align: justify;
@@ -177,7 +247,39 @@ main{
     text-align: left;
     font-size:x-large;
 }
+#Projects{
+    
+    /* overflow: hidden; */
+    /* overflow-x:scroll; */
+    white-space: nowrap;
+    /* height:86.46%; */
+    text-wrap: nowrap;
+    position: sticky;
+    /* display: inline-block; */
+    /* width: 106%; */
+    /* margin-left: -60px; */
+    clear: both;
+
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: fit-content;
+    width: 100%;
+
+}
+#Projects div{
+    margin-right: -21%;
+    position: relative;
+    width: 100%;
+    margin-left: 2%;
+    padding-left: 0%;
+    text-wrap:wrap;
+    margin-bottom: 50px;
+    margin-right: 5px;
+}
+
 nav{
+    
     width: 15%;
     height: 100%;
 
@@ -206,26 +308,52 @@ nav{
     background-color: var(--bg_secondary);
     height: fit-content;
     border: 5px solid var(--highlight2);
-    border-radius: 180px;
+    border-radius: 100%;
 
 }
 
 #pfp img{
-    border-radius: 180px;
+    border-radius: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
     border: 0
 }
 
+.divider{
+    /* background-color: black; */
+
+    grid-column-start: 1 ;
+    grid-column-end: 3;
+    height: 64px;
+    margin: 0 !important;
+
+    text-align: center;
+    font-family: GIZMO;
+    color: var(--text);
+    text-shadow: 2px 4px 1px black;
+    font-size: xx-large;
+    padding-top: 16px;
+
+    background-image: url("misc/WARN_1A.PNG");
+    background-repeat: repeat;
+    background-size: 256px;
+    border: solid var(--text2) 4px;
+    border-left:  solid var(--text2) 8px;
+    border-right:  solid var(--text2) 8px;
+
+    mix-blend-mode:soft-light;
+    opacity: 0.75;
+}
+
 .proj_sec{
     width: fit-content;
-    height: 480px;
-    margin-top: 0;
+    height: fit-content;
+    margin-top: 10px;
 
     display: inline-grid;
     grid-template-columns: 29% 25%;
-    grid-template-rows: 40% auto;
+    grid-template-rows: 60% auto ;
 }
 
 .text{
@@ -250,16 +378,31 @@ nav{
     display: block;
     float: none;
     background-color: var(--bg);
-    border-radius: 12%;
-    width: 25%;
+    border-radius: 12px;
 
-    height: fit-content;
+    /*TODO : fit tools svg's to contone line*/
+    height: fit-content !important;
     width: fit-content !important;
+    /* width: 192px; */
+    min-width: 96px;
+    max-width: 192px;
 
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start:2 ;
     grid-row-end: 3;
+}
+/* div.tools {
+    width: fit-content !important;
+    width: 192px;
+
+} */
+.tools img{
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 48px; 
+    border: none;
 }
 
 .img_left{
@@ -321,26 +464,6 @@ img{
     word-wrap: break-word;
 }
 
-#Projects{
-    overflow: hidden;
-    overflow-x:scroll;
-    /* white-space: nowrap; */
-    height:75%;
-    text-wrap: nowrap;
-    position: sticky;
-    display: inline-block;
-    width: 92%;
-    /* clear: both; */
-}
-#Projects div{
-    margin-right: -21%;
-    position: relative;
-    width: 75%;
-    margin-left: 0%;
-    padding: 0%;
-    text-wrap:wrap;
-}
-
 .scrollers{ /*this represents the 2 button for scrolling*/
     position: relative;
     z-index: 1;
@@ -351,15 +474,15 @@ img{
     color:var(--text);
     border-width: 0;
     padding: 5px;
-    width: 4%;
+    width: 40px;
 }
 #HScrollR{
     float: right;
-    right: 0%;
+    left: 40px;
 }
 #HScrollL{
     float: left;
-    left: 0%;
+    left: 40px;
 }
 #Projects i{
     font-size:x-large;
@@ -371,8 +494,7 @@ img{
     background-color: var(--bg_secondary);
     border: 2px solid var(--highlight2);
     border-radius: 5px;
-    margin: 2%;
-    margin-top: 0;
+    /* margin-top: 20%; */
     margin-right: -15%;
     padding-left: 2%;
     padding-bottom: 2%;
@@ -456,4 +578,8 @@ em{
 
 .extern_link{
     text-decoration-color: #8d3560 !important;
+}
+iframe{
+    border: none;
+    height: 100%;
 }
