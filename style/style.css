@@ -14,12 +14,12 @@
 
 @font-face {
     font-family: NeoMatrixCode;
-    src: url("fonts/NeomatrixCode.ttf");
+    src: url("misc/NeomatrixCode.ttf");
     font-display: swap;
 }
 @font-face {
     font-family: GIZMO;
-    src: url("fonts/GIZMO.ttf");
+    src: url("misc/GIZMO.ttf");
     font-display: swap;
 }
 
@@ -96,7 +96,7 @@ hr::after,
 html{
     /* height: 240%; */
     animation: "bg_anim" 60s linear infinite ;
-    background:repeat url("fonts/pattern.png"),
+    background:repeat url("misc/pattern.png"),
     linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 55%, var(--bg) 90%);
     image-rendering:pixelated;
     /* background-color: transparent; */
