@@ -91,5 +91,5 @@ function copyEmailToClipBoard() {
 }
 
 function resetToolTip() {
-    document.getElementById("emailTooltip").innerHTML = "Copy Email"
+    // document.getElementById("emailTooltip").innerHTML = "Copy Email"
 }

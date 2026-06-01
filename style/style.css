@@ -62,7 +62,7 @@ hr, .markdown-preview-view hr {
   border-image-slice: 1;
   border-width: 1px;
   border-image-source: linear-gradient(to right, var(--bg_secondary), var(--highlight1), var(--bg_secondary));
-  margin: 0px 4px; /*might need tweeking*/
+  margin: 6px 0px; /*might need tweeking*/
 }
 
 hr::after,
@@ -83,6 +83,11 @@ hr::after,
     0 0 12px var(--highlight2); /* Softly diffused glow */ 
 }
 
+#rogue::after{
+    content: '~';
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .sections{
     
     min-width: 100px;
@@ -94,7 +99,9 @@ hr::after,
 }
 
 html{
-    /* height: 240%; */
+    /* height: 100%; */
+    min-height: 100%;
+
     animation: "bg_anim" 60s linear infinite ;
     background:repeat url("misc/pattern.png"),
     linear-gradient(180deg, var(--bg_secondary) 0%, var(--bg) 55%, var(--bg) 90%);
@@ -106,9 +113,10 @@ body
 {
     padding: 0;
     margin: 0;
-    height: fit-content;
-    width: 85%;
+    /* height: 100%; */
+    width: 98%;
 
+    margin-right: 15%;
 
     color: var(--text);
     font-family: "neomatrix code", monospace;
@@ -174,7 +182,8 @@ h1{
 }*/
 #aboutme{
     position: relative;
-    width: 120%;
+    width: 78%;
+    height: fit-content;
 
     float: left;
 
@@ -182,8 +191,8 @@ h1{
 
     margin: 2%;
 
-    margin-top: 9%;
-    margin-bottom: 0;
+    margin-top: 7%;
+    margin-bottom: 1%;
 
     background-color: var(--bg_secondary);
     border: 2px solid var(--highlight2);
@@ -194,7 +203,7 @@ h1{
 }
 #vector{
     float: right;
-    margin-top: 8%;
+    margin-top: 6%;
     margin-right: -.5%;
     margin-left: -15%;
     width: 25%;
@@ -202,10 +211,13 @@ h1{
     position: relative;
 }
 #vector figure{
-    width: 100%;
+    width: 68%;
+    font-size: large;
+    border: var(--highlight2) solid 3px;
 }
-#vector img{
-    width: 99%;
+#vector figure img{
+    width: 100%;
+    border: none;
 }
 main{
     
@@ -224,7 +236,7 @@ main{
     height: 100%;
     float: left;
 
-    width: 100%;
+    width: 74%;
     height: fit-content;
 
     background-color: var(--bg_secondary);
@@ -320,6 +332,12 @@ nav{
     border: 0
 }
 
+#logo{
+    width: 256px;
+    border: none;
+    margin: 0;
+}
+
 .divider{
     /* background-color: black; */
 
@@ -331,7 +349,7 @@ nav{
     text-align: center;
     font-family: GIZMO;
     color: var(--text);
-    text-shadow: 2px 4px 1px black;
+    text-shadow: 2px 4px 1px var(--text2);
     font-size: xx-large;
     padding-top: 16px;
 
@@ -339,11 +357,12 @@ nav{
     background-repeat: repeat;
     background-size: 256px;
     border: solid var(--text2) 4px;
-    border-left:  solid var(--text2) 8px;
-    border-right:  solid var(--text2) 8px;
+    border-left: solid 8px var(--text);
+    border-right-width:  8px;
+    border-bottom-color: var(--text);
 
     mix-blend-mode:soft-light;
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 .proj_sec{
@@ -490,6 +509,7 @@ img{
 #filler{
     display:block;
     float: none;
+    width: 97.5%;
     
     background-color: var(--bg_secondary);
     border: 2px solid var(--highlight2);
@@ -526,7 +546,7 @@ img{
   position: absolute;
   z-index: 1;
   top: 100%;
-  left: 100%;
+  left: 0%;
   transition-property: visibility;
   transition-delay: 0s;
 }
@@ -582,4 +602,14 @@ em{
 iframe{
     border: none;
     height: 100%;
+}
+
+#hover_desc{
+    padding: 4px !important;
+    text-wrap: 256px !important;
+    text-wrap-mode: wrap;
+    border: 2px solid var(--text2) ;
+    width: 256px;
+    background-color: var(--bg_secondary) !important;
+    
 }
