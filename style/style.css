@@ -650,3 +650,11 @@ iframe{
     border:none;
     margin: 0;
 }
+
+.whisper{
+    text-align: center;
+    font-size: xx-small;
+    color: var(--text);
+    font-family: "neomatrix code", monospace;
+    /* top: 100px; */
+}
