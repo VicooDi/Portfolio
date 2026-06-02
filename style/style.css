@@ -652,7 +652,7 @@ iframe{
 }
 
 .whisper{
-    font-size: xx-small;
+    font-size: xx-small!important;
     color: var(--text);
-    font-family: "NeoMatrixCode";
+    font-family: "NeoMatrixCode"!important;
 }
