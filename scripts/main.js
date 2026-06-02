@@ -93,3 +93,43 @@ function copyEmailToClipBoard() {
 function resetToolTip() {
     // document.getElementById("emailTooltip").innerHTML = "Copy Email"
 }
+
+onmousemove = function (e) {
+    var eyes = document.getElementById("eyes");
+    var logo = document.getElementById("logo");
+
+    var lbStyle = window.getComputedStyle(logo);
+    var topValue = lbStyle.getPropertyValue("top").replace("px", "");
+    var leftValue = lbStyle.getPropertyValue("  ").replace("px", "");
+
+    console.log(topValue + "," + leftValue);
+
+    var X = e.clientX - (Number(topValue) + 128 + 256);
+    var Y = e.clientY - (Number(leftValue) + 32);
+    
+    magnitude = Math.sqrt(X * X + Y * Y);
+    X /= magnitude;
+    Y /= magnitude;
+
+    X *= 5;
+    Y *= 5;
+    
+    eyes.style.top = (Number(topValue) + Y) + "px";
+    eyes.style.left = (Number(leftValue) + X+256) + "px";
+    
+    
+}
+
+// onmousemove = function (e) {
+//     // var m_pos = new THREE.Vector2(e.clientX, e.clientY);
+  
+//     // const pos = getObjectAbsulotePos(eyes, object.camera, object.container);
+    
+//     vec = new THREE.Vector2(m_pos.x - pos.x, m_pos.y - pos.y);
+//     vec.normalize(); //might change it to clamp later to emulate a square effect.
+  
+//     eyes.position.set(origin_pos.x + vec.x, origin_pos.y -vec.y, origin_pos.z);
+//     // console.log("origin location:", origin_pos);
+  
+//     // console.log("mouse location:", m_pos.x, m_pos.y);
+//   }

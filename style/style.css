@@ -164,7 +164,7 @@ h1{
     
     /* padding-left: 1%;
     padding-right: 1%; */
-    margin-left: 10%;
+    margin-left: 256px;
 
 }
 #me h1{
@@ -334,12 +334,6 @@ nav{
     border: 0
 }
 
-#logo{
-    width: 256px;
-    border: none;
-    margin: 0;
-}
-
 .divider{
     /* background-color: black; */
 
@@ -410,6 +404,8 @@ nav{
     min-width: 32px;
     
 
+    margin-top:8%;
+    left:15px;
     /* grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start:2 ;
@@ -526,7 +522,7 @@ img{
 }
 
 .tools strong{
-    color: var(--highlight1);
+    /* color: var(--highlight1); */
     font-size: larger;
 }
 
@@ -617,4 +613,25 @@ iframe{
     width: 256px;
     background-color: var(--bg_secondary) !important;
     
+}
+
+#logo{
+    width: 256px;
+    border: none;
+    margin: 0;
+
+    top: 0;
+    left: 128px;
+
+}
+
+#eyes{
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 256px;
+
+    width: 256px;
+    border:none;
+    margin: 0;
 }
