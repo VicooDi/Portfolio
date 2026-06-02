@@ -125,7 +125,7 @@ body
 
     display: grid;
     grid-template-rows: auto auto auto;
-    /* overflow:hidden ; */
+    overflow:hidden ;
 }
 a{
     text-decoration: underline;
@@ -230,7 +230,7 @@ main{
     justify-content: 10px;
     margin-bottom: 15%;
     margin-top: 0;
-    height: fit-content;
+    height: 80%;
     min-height: 480px;
 
     margin-bottom: -11.5%;
