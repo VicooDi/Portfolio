@@ -650,9 +650,3 @@ iframe{
     border:none;
     margin: 0;
 }
-
-.whisper{
-    font-size: xx-small!important;
-    color: var(--text);
-    font-family: "NeoMatrixCode"!important;
-}
