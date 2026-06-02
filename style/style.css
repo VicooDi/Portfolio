@@ -145,7 +145,8 @@ h1{
     font-size:150%;
     font-weight: bolder;
     width: fit-content;
-        
+
+    
 }
 
 #me{
@@ -436,6 +437,7 @@ nav{
     padding-top: 0;
 
     width: 45%;
+    aspect-ratio: 1;
 
     grid-column-start: 1;
     grid-column-end: 3;
