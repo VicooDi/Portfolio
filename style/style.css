@@ -654,5 +654,5 @@ iframe{
 .whisper{
     font-size: xx-small;
     color: var(--text);
-    font-family: "NeoMatrixCode", monospace;
+    font-family: "NeoMatrixCode";
 }
