@@ -125,7 +125,7 @@ body
 
     display: grid;
     grid-template-rows: auto auto auto;
-    overflow:hidden ;
+    /* overflow:hidden ; */
 }
 a{
     text-decoration: underline;
