@@ -652,9 +652,7 @@ iframe{
 }
 
 .whisper{
-    text-align: center;
     font-size: xx-small;
     color: var(--text);
-    font-family: "neomatrix code", monospace;
-    /* top: 100px; */
+    font-family: "NeoMatrixCode", monospace;
 }
