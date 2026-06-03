@@ -126,6 +126,7 @@ body
     display: grid;
     grid-template-rows: auto auto auto;
     /* overflow:hidden ; */
+    overflow-x: hidden;
 }
 a{
     text-decoration: underline;
@@ -670,15 +671,20 @@ iframe{
     margin: 0;
 }
 
-.loadingScreen{
+#loadingScreen{
     margin: 0;
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 100;
+    background-color: var(--bg);
+    overflow: hidden;
 }
 
-.loadingScreen h1{
-    margin-left: 50%;
+#loadingScreen h1{
+    margin-top: 15%;
+    margin-left: 45%;
     z-index: 101;
+    font-size: 200%;
+    
 }

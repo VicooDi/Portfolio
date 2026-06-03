@@ -2,9 +2,38 @@ var tabs_moved = 0
 var win_w = window.innerWidth;
 var win_h = window.innerHeight;
 
-DOMContentLoaded = function(e){
-    print("good morning")
+var loadingScreen;
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    loadingScreen = document.getElementById("loadingScreen");
+    loadingScreen.hidden = false;
+    var text = loadingScreen.childNodes[1];
+    // text.innerHTML = "aaa"
+    // console.log("*"*5%3);
+    looptext();
+
+});
+
+async function looptext() {
+    loadingScreen.childNodes[1].innerHTML = "Loading" + await newText(); 
+    looptext();
+    
 }
+
+var iter = 0;
+function newText() {
+    iter++;
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(".".repeat(iter%3 + 1));
+        }, 700);
+    });
+}
+
+addEventListener("load", () => {
+    loadingScreen;
+    loadingScreen.hidden = true;
+});
 
 function startup(){
     document.body.innerWidth = win_w;
