@@ -6,10 +6,17 @@
     <title>GIZMO</title>
     <link rel="stylesheet" href="../style/style.css">
     <script src="../scripts/main.js"></script>
+    <style>
+        image{
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
     <header onmouseover="return tabsUp()">
-        <div id="me"><a href="../index.html"><img src="../misc/logooo.png" alt="logo3d" id="logo"><img src="../misc/EYES.png", alt="eyes3d" id="eyes"></a></div>
+        <div id="me"><a href="../index.html"><img loading="lazy" src="../misc/logooo.png" alt="logo3d" id="logo"><img loading="lazy" src="../misc/EYES.png", alt="eyes3d" id="eyes"></a></div>
         <div id="tabs">
             <div class="sections"><a href="../index.html#aboutme"><br>[About me]</a></div>
             <div class="sections"><a href="../index.html#Projects"><br>[Projects]</a></div>
@@ -19,5 +26,8 @@
     </header>
     <center><h2 onmouseover="return tabsDown()" style="padding: 30%;">Coming Soon!</h2></center>
     <!--add and image of construction worker here-->
+    <div id="loadingScreen">
+        <h1>Loading...</h1>
+    </div>
 </body>
 </html>
