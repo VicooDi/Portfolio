@@ -257,13 +257,10 @@ main{
 }
 .projects p{
     text-align: justify;
-    width:200%;
+    width:100%;
+    text-overflow: clip;
 }
-.projects h2{
-    width: 100%;
-    text-align: left;
-    font-size:x-large;
-}
+
 #Projects{
     
     /* overflow: hidden; */
@@ -287,13 +284,31 @@ main{
 #Projects div{
     margin-right: -21%;
     position: relative;
-    width: 110%;
-    margin-left: 2%;
+    width: 98%;
+    margin-left: 0%;
     padding-left: 0%;
     text-wrap:wrap;
     margin-bottom: 20px;
-    margin-right: 5px;
+    /*margin-right: 50%;*/
 }
+
+.proj_sec{
+    width: fit-content;
+    height: fit-content; /*256+64=320+(5+5+5 for margin)*/
+    margin-top: 10px;
+
+    background-color: #100d1a8d;
+    border: 3px solid var(--text2);
+    border-radius: 4px;
+    border-right: 4px solid var(--text);
+    border-top: 4px solid var(--text);
+    
+
+    display: inline-grid;
+    grid-template-columns: 50% auto;
+    grid-template-rows: 60% 0% ;
+}
+
 
 nav{
     
@@ -365,16 +380,6 @@ nav{
     opacity: 0.8;
 }
 
-.proj_sec{
-    width: fit-content;
-    height: fit-content;
-    margin-top: 10px;
-
-    display: inline-grid;
-    grid-template-columns: 29% 25%;
-    grid-template-rows: 60% auto ;
-}
-
 .showcaser{
     background-color: var(--bg_secondary);
     width: 90%;
@@ -388,22 +393,37 @@ nav{
 }
 
 
-
+.projects h2{
+    width: 100%;
+    text-align: left;
+    font-size:x-large;
+    text-wrap-mode: nowrap;
+    text-overflow: clip;
+}
 .text{
+    background-color:var(--bg_secondary) ;
     position: relative;
     display: block;
-    width: 100%;
+    width: 95%;
+    height: 100%;
     text-align: justify;
     text-wrap-style: stable;
+    word-wrap: break-word;
     text-overflow: ellipsis;
+    
     margin-right: 0;
-    margin: 0;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    
 
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
     grid-row-start:1 ;
-    grid-row-end: 2;
+    grid-row-end: 5;
 }
+
 .tools{
     opacity: .6;
     
@@ -411,7 +431,7 @@ nav{
     display: block;
     float: left;
     background-color: var(--bg);
-    border-radius: 12px;
+    border-radius: 6px;
 
     /*TODO : fit tools svg's to contone line*/
     width: fit-content !important;
@@ -422,11 +442,12 @@ nav{
     
 
     margin-top:8%;
-    left:15px;
-    /* grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start:2 ;
-    grid-row-end: 3; */
+    left:11px;
+    
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:4 ;
+    grid-row-end: 5;
 }
 /* div.tools {
     width: fit-content !important;
@@ -446,14 +467,15 @@ nav{
     float:left;
     margin-right: 5%;
     margin-left: 5%;
-    margin-top: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding-top: 0;
 
-    width: 45%;
+    width: 90%;
     aspect-ratio: 1;
 
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 2;
     grid-row-start:1 ;
     grid-row-end: 2;
 }
@@ -496,9 +518,6 @@ img{
 }.img_right{
     float:right;
     margin-left: 2.5%;
-}
-.text{
-    word-wrap: break-word;
 }
 
 .scrollers{ /*this represents the 2 button for scrolling*/
@@ -649,4 +668,17 @@ iframe{
     width: 256px;
     border:none;
     margin: 0;
+}
+
+.loadingScreen{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+}
+
+.loadingScreen h1{
+    margin-left: 50%;
+    z-index: 101;
 }

@@ -2,6 +2,10 @@ var tabs_moved = 0
 var win_w = window.innerWidth;
 var win_h = window.innerHeight;
 
+DOMContentLoaded = function(e){
+    print("good morning")
+}
+
 function startup(){
     document.body.innerWidth = win_w;
     document.body.innerHeight = win_h;
@@ -102,7 +106,7 @@ onmousemove = function (e) {
     var topValue = lbStyle.getPropertyValue("top").replace("px", "");
     var leftValue = lbStyle.getPropertyValue("  ").replace("px", "");
 
-    console.log(topValue + "," + leftValue);
+    //console.log(topValue + "," + leftValue);
 
     var X = e.clientX - (Number(topValue) + 128 + 256);
     var Y = e.clientY - (Number(leftValue) + 32);
