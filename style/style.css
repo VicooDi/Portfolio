@@ -378,7 +378,7 @@ nav{
 
     text-align: center;
     font-family: GIZMO;
-    color: var(--text);
+    color:antiquewhite ;
     text-shadow: 2px 4px 1px var(--text2);
     font-size: xx-large;
     padding-top: 16px;
