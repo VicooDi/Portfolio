@@ -9,6 +9,13 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="icon" type="image/png" href="misc\site_icon.png">
     <script src="scripts/main.js"></script>
+    <style>
+        image{
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body onload="return startup()">
     <header onmouseover="return tabsUp()">
@@ -27,15 +34,15 @@
             <div style="float:left; width: fit-content;">
                 <p id="bio" ><h1>Hi!</h1>
                 <hr><br>
-                I'm a 21 year old college student, Making Indie Games and 3D Models. <br><i>I eat dreams for a living, Live to give soul to the inanimate and Connect throught creating.</i> <br>
-                <p style="font-size:medium;">I'm also looking for <i>(Remote)</i> part-time or freelance work!</p> check out my projects below.</p>
+                I'm a 21 year old college student, Making Indie Games and 3D Models. <br><i>I Eat Dreams for a living and Connect throught Creating.</i> <br>
+                <p style="font-size:medium;">I'm also looking for <i>(Remote)</i> part-time or freelance work!</p> check out my projects below!</p>
                 <hr>
             </div>
             
         </div>
         <div id="vector">
             <figure>
-                <img src="misc/vector.jpg" alt="my tortois">
+                <img loading="lazy" src="misc/vector.webp" alt="my tortois">
                 <figcaption style="font-size: 80%;background-color: black;opacity: .5; text-align: center;">here's a pic of my tortoise! aint he a cutie?</figcaption>
             </figure>
         </div>
@@ -43,7 +50,7 @@
     <main onmouseover="return tabsDown()">
         <nav>
             <div id="pfp">
-                <img src="misc/rust_eyed.png" alt="pfp">
+                <img src="misc/rust_eyed.webp" alt="pfp">
             </div>
             <center><h1>Socials</h1></center>
             <div id="Socials">
@@ -107,8 +114,9 @@
                 <div class="divider">Unfinished Projects</div>
 
                 <div class="proj_sec" id="Gizmo">
-                    <img src="misc/overtaken-fringedIris.png" alt="gizmo" class="img_left" href="html/gizmo.html">
+                    <img loading="lazy" src="misc/overtaken-fringedIris.png" alt="gizmo" class="img_left" href="html/gizmo.html">
                     <div class="text"><h2><a href="html/gizmo.html">GIZMO</a></h2><p>is a metroid-brania aboout a robot trying to remember his name</p></div>
+
                     
                     <div class="tools"><strong>Tools:</strong><br>
                         <img src="https://skillicons.dev/icons?i=godot,blender" />
@@ -116,15 +124,13 @@
                 </div>
 
                 <div class="proj_sec" id="_engine">
-                    <img src="misc/HelloTriangle.png" alt="HelloTriangle" class="img_left" href="https://github.com/VicooDi/_engine">
+                    <img src="misc/HelloTriangle.webp" alt="HelloTriangle" class="img_left" href="https://github.com/VicooDi/_engine">
                     <div class="text"><h2><a href="https://github.com/VicooDi/_engine">_engine</a></h2><p>is a project I started to learn the basics of creating and managing game engines with</p></div>
                     
                     <div class="tools"><strong>Tools :</strong><br>
                         <img src="https://skills.syvixor.com/api/icons?i=cpp,cmake,simpledirectmedialayer,vulkan"/>
                     </div>
                 </div>
-
-
 
             </div>
         </div> 
@@ -155,6 +161,10 @@
             </ol>
         </section>
         all code for this website is publicly available on <a href="https://github.com/VicooDi/Portfolio">github</a>!
+    </div>
+
+    <div id="loadingScreen">
+        <h1>Loading...</h1>
     </div>
 </body>
 </html>
